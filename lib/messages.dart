@@ -7,7 +7,7 @@ class Message extends StatefulWidget {
 }
 
 class _MessageState extends State<Message> {
-  int a = 0, a1 = 0, b, b1, k, k1, m, m1, o, o1, r; //this is for step1;
+  int a = 0, a1 = 0, b, b1, k, k1, m, m1, o, o1, r, r1; //this is for step1;
   int f1 = 1,
       f2,
       f3,
@@ -27,8 +27,25 @@ class _MessageState extends State<Message> {
       f17,
       f18,
       f19,
-      f20;
-  int g = 1, c = 1, l = 1, s = 1, p = 1, t = 1, g1 = 1, c1 = 1, l1 = 1, s1 = 1;
+      f20,
+      f21,
+      f22,
+      f23,
+      f24,
+      f25;
+  int g = 1,
+      c = 1,
+      l = 1,
+      s = 1,
+      p = 1,
+      t = 1,
+      g1 = 1,
+      c1 = 1,
+      l1 = 1,
+      s1 = 1,
+      p1 = 1,
+      t1 = 1,
+      h1 = 1;
   //for yes or no
   List<String> step1 = [
     "Are the breasts of usual size?",
@@ -1127,10 +1144,10 @@ class _MessageState extends State<Message> {
                       ),
                       onPressed: () {
                         setState(() {
-                          f18 = 1;
-                          f19 = 0;
-                          f20 = 0;
-                          o1 = m1 + 1;
+                          f20 = 1;
+                          f21 = 0;
+                          f22 = 0;
+                          r1 = o1 + 1;
                         });
                       }),
                   SizedBox(
@@ -1142,14 +1159,322 @@ class _MessageState extends State<Message> {
                       ),
                       onPressed: () {
                         setState(() {
-                          f18 = 1; //button hataney key liye
-                          f19 = 0; //next question dikhaney key liye
-                          f20 = 0; //button dikhaney key liye
-                          o1 = m1 + 1;
-                          s1 = 0;
+                          f20 = 1; //button hataney key liye
+                          f21 = 0; //next question dikhaney key liye
+                          f22 = 0; //button dikhaney key liye
+                          r1 = o1 + 1;
+                          p1 = 0;
                         });
                       }),
                 ],
+              ),
+            ),
+          if (f21 == 0)
+            Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8.3),
+                child: Container(
+                  width: p1 == 0
+                      ? MediaQuery.of(context).size.width / 4
+                      : MediaQuery.of(context).size.width / 2.8,
+                  height: MediaQuery.of(context).size.height / 15,
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                          bottomRight: Radius.circular(20))),
+                  child: Center(
+                    child: Flexible(
+                      child: s1 == 1
+                          ? Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Attentiom needed",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15),
+                              ),
+                            )
+                          : Text(
+                              "No",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          if (f21 == 0)
+            Padding(
+              padding: const EdgeInsets.all(8.3),
+              child: Container(
+                width: MediaQuery.of(context).size.width / 1.3,
+                height: MediaQuery.of(context).size.height / 9,
+                decoration: BoxDecoration(
+                    color: Hexcolor('#EF0B64'),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20))),
+                child: Center(
+                  child: Flexible(
+                      child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      step1[r1],
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
+                  )),
+                ),
+              ),
+            ),
+          if (f22 == 0)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  RaisedButton(
+                      child: Center(
+                        child: Text("Yes"),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          f22 = 1;
+                          f23 = 0;
+                          f24 = 0;
+                          r1 = o1 + 1;
+                        });
+                      }),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  RaisedButton(
+                      child: Center(
+                        child: Text("No"),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          f22 = 1; //button hataney key liye
+                          f23 = 0; //next question dikhaney key liye
+                          f24 = 0; //button dikhaney key liye
+                          r1 = o1 + 1;
+                          t1 = 0;
+                        });
+                      }),
+                ],
+              ),
+            ),
+          if (f23 == 0)
+            Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8.3),
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 4,
+                  height: MediaQuery.of(context).size.height / 15,
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                          bottomRight: Radius.circular(20))),
+                  child: Center(
+                    child: Flexible(
+                      child: t1 == 1
+                          ? Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Yes",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15),
+                              ),
+                            )
+                          : Text(
+                              "No",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          if (f23 == 0)
+            Padding(
+              padding: const EdgeInsets.all(8.3),
+              child: Container(
+                width: MediaQuery.of(context).size.width / 1.1,
+                height: MediaQuery.of(context).size.height,
+                decoration: BoxDecoration(
+                    color: Hexcolor('#EF0B64'),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20))),
+                child: Center(
+                  child: Flexible(
+                      child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            "Step 3:\nNext, feel your breasts while lying down, using your right hand to feel your left breast and then your left hand to feel your right breast.\nUse a firm, smooth touch with the first few finger pads of your hand, keeping the fingers flat and together. Use a circular motion, about the size of a quarter.Cover the entire breast from top to bottom, side to side — from your collarbone to the top of your abdomen, and from your armpit to your cleavage.\nFollow a pattern to be sure that you cover the whole breast. You can begin at the nipple, moving in larger and larger circles until you reach the outer edge of the breast. You can also move your fingers up and down vertically, in rows, as if you were mowing a lawn. This up-and-down approach seems to work best for most women. Be sure to feel all the tissue from the front to the back of your breasts:\nfor the skin and tissue just beneath, use light pressure; use medium pressure for tissue in the middle of your breasts; use firm pressure for the deep tissue in the back. When you've reached the deep tissue, you should be able to feel down to your ribcage..",
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: 300,
+                            ),
+                            Image.asset(
+                              "assets/3.jpg",
+                              height: MediaQuery.of(context).size.height / 7,
+                              fit: BoxFit.cover,
+                              filterQuality: FilterQuality.low,
+                            ),
+                            Text("# For Education Purpose")
+                          ],
+                        )
+                      ],
+                    ),
+                  )),
+                ),
+              ),
+            ),
+          if (f24 == 0)
+            Padding(
+              padding: const EdgeInsets.all(8.3),
+              child: Container(
+                width: MediaQuery.of(context).size.width / 1.3,
+                height: MediaQuery.of(context).size.height / 9,
+                decoration: BoxDecoration(
+                    color: Hexcolor('#EF0B64'),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20))),
+                child: Center(
+                  child: Flexible(
+                      child: Text(
+                    " Did you feel any lumps or any other faced issues?",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  )),
+                ),
+              ),
+            ),
+          if (f24 == 0)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  RaisedButton(
+                      child: Center(
+                        child: Text("Yes"),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          f24 = 1;
+                          f25 = 0;
+                        });
+                      }),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  RaisedButton(
+                      child: Center(
+                        child: Text("No"),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          f24 = 1; //button hataney key liye
+                          f25 = 0;
+                          h1 = 1; //next question dikhaney key liye
+                        });
+                      }),
+                ],
+              ),
+            ),
+          if (f25 == 0)
+            Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8.3),
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 4,
+                  height: MediaQuery.of(context).size.height / 15,
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                          bottomRight: Radius.circular(20))),
+                  child: Center(
+                    child: Flexible(
+                      child: h1 == 1
+                          ? Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Yes",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15),
+                              ),
+                            )
+                          : Text(
+                              "No",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          if (f25 == 0)
+            Padding(
+              padding: const EdgeInsets.all(8.3),
+              child: Container(
+                width: MediaQuery.of(context).size.width / 1.1,
+                height: MediaQuery.of(context).size.height / 3,
+                decoration: BoxDecoration(
+                    color: Hexcolor('#EF0B64'),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20))),
+                child: Center(
+                  child: Flexible(
+                      child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            "Step 4:\n Finally, feel your breasts while you are standing or sitting. Many women find that the easiest way to feel their breasts is when their skin is wet and slippery, so they like to do this step in the shower. Cover your entire breast, using the same hand movements described in step 4.",
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: 60,
+                            ),
+                            Image.asset(
+                              "assets/4.jpg",
+                              height: MediaQuery.of(context).size.height / 7,
+                              fit: BoxFit.cover,
+                              filterQuality: FilterQuality.low,
+                            ),
+                            Text("# For Education Purpose")
+                          ],
+                        )
+                      ],
+                    ),
+                  )),
+                ),
               ),
             ),
         ],
