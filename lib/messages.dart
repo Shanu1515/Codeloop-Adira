@@ -381,6 +381,7 @@ class _MessageState extends State<Message> {
                           bottomRight: Radius.circular(20))),
                   child: Center(
                     child: Flexible(
+                      flex: 3,
                       child: l == 1
                           ? Padding(
                               padding: const EdgeInsets.all(8.0),
