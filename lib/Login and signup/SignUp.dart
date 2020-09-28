@@ -213,7 +213,7 @@ class _SignUpState extends State<SignUp> {
                                             : "Password is not same*";
                                       },
                                       obscureText: true,
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                       decoration: InputDecoration(
                                         hintText: "Confirm password",
                                         hintStyle:
@@ -296,7 +296,7 @@ class _SignUpState extends State<SignUp> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "have an Account?",
+                              "Already have an Account?",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w400,

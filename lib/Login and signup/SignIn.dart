@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hackathon2/Choices.dart';
 import 'package:hackathon2/messages.dart';
 
 class SignIn extends StatefulWidget {
@@ -211,7 +212,7 @@ class _SignInState extends State<SignIn> {
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => Message()));
+                                              builder: (context) => Choices()));
                                     } else {
                                       print("not");
                                     }
