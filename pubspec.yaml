@@ -33,6 +33,10 @@ dependencies:
   hexcolor: ^1.0.4
   firebase_auth: ^0.16.1
   google_sign_in: ^4.1.1
+  firebase_storage: ^3.1.1
+  firebase_database: 
+  uuid: ^2.0.4
+  image_picker: ^0.6.3+1
   bubble: 
   intl:
   
@@ -63,6 +67,7 @@ flutter:
      - assets/2.jpg
      - assets/3.jpg
      - assets/4.jpg
+     - assets/5.png
      - assets/load.gif
      - assets/Logo.png
      - assets/g.jpg

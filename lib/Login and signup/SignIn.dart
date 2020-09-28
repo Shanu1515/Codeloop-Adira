@@ -1,6 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:hackathon2/Choices.dart';
+=======
+import 'package:hackathon2/GoogleAuth/google.dart';
+>>>>>>> 67e9907718e2de7fb7e09940f0118dae4cb2cafc
 import 'package:hackathon2/messages.dart';
 
 class SignIn extends StatefulWidget {
@@ -297,39 +301,53 @@ class _SignInState extends State<SignIn> {
                                 ],
                               ),
                             ),
-                            Container(
-                              height: 40,
-                              width: 350,
-                              decoration: BoxDecoration(
-                                  color: Color(0xFFFF69B4),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Center(
-                                      child: Text(
-                                    "SIGN IN WITH GOOGLE",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        letterSpacing: 1,
-                                        fontWeight: FontWeight.w400),
-                                  )),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Container(
-                                    height: 35,
-                                    width: 35,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(20)),
-                                        image: DecorationImage(
-                                            image: AssetImage("assets/g.jpg"))),
-                                  )
-                                ],
+                            GestureDetector(
+                              onTap: () {
+                                signInWithGoogle().whenComplete(() async {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return Message();
+                                      },
+                                    ),
+                                  );
+                                });
+                              },
+                              child: Container(
+                                height: 40,
+                                width: 350,
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFFF69B4),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Center(
+                                        child: Text(
+                                      "SIGN IN WITH GOOGLE",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          letterSpacing: 1,
+                                          fontWeight: FontWeight.w400),
+                                    )),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Container(
+                                      height: 35,
+                                      width: 35,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(20)),
+                                          image: DecorationImage(
+                                              image:
+                                                  AssetImage("assets/g.jpg"))),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ],
