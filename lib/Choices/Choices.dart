@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon2/Bottomnavbar/bottombar.dart';
 import 'package:hackathon2/messages.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -53,40 +54,48 @@ class _ChoicesState extends State<Choices> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  width: 290,
-                  height: 290,
-                  decoration: BoxDecoration(
-                      color: Color(0xFFEF0B64),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 150,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          image: DecorationImage(
-                            image: AssetImage("assets/home.gif"),
-                            fit: BoxFit.cover,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.fade, child: Bottom()));
+                  },
+                  child: Container(
+                    width: 290,
+                    height: 290,
+                    decoration: BoxDecoration(
+                        color: Color(0xFFEF0B64),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 150,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            image: DecorationImage(
+                              image: AssetImage("assets/home.gif"),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text(
-                          "CONTINUE TO HOMESCREEN",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              letterSpacing: 1,
-                              fontSize: 17,
-                              fontWeight: FontWeight.w900),
-                        ),
-                      )
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Text(
+                            "CONTINUE TO HOMESCREEN",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                letterSpacing: 1,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w900),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(

@@ -1,10 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:hackathon2/Choices.dart';
-=======
+import 'package:hackathon2/Choices/Choices.dart';
 import 'package:hackathon2/GoogleAuth/google.dart';
->>>>>>> 67e9907718e2de7fb7e09940f0118dae4cb2cafc
+import 'package:hackathon2/global.dart';
 import 'package:hackathon2/messages.dart';
 
 class SignIn extends StatefulWidget {
@@ -21,6 +19,7 @@ class _SignInState extends State<SignIn> {
   TextEditingController _email = TextEditingController();
   TextEditingController _pwd = TextEditingController();
   final auth = FirebaseAuth.instance;
+
   Future<AuthResult> signIn(String email, String password) async {
     try {
       setState(() {
@@ -34,6 +33,8 @@ class _SignInState extends State<SignIn> {
 
       final FirebaseUser currentUser = await auth.currentUser();
       assert(user.user.uid == currentUser.uid);
+      uid1 = user.user.uid;
+      print(uid1);
       return user;
     } catch (e) {
       print(e);
@@ -307,7 +308,7 @@ class _SignInState extends State<SignIn> {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (context) {
-                                        return Message();
+                                        return Choices();
                                       },
                                     ),
                                   );
