@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 DatabaseReference database1;
 
@@ -20,17 +21,18 @@ class _BlogsState extends State<Blogs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        elevation: 0.0,
-        actions: [
-          IconButton(
-              icon: Icon(
-                Icons.person,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Center(
+          child: Text(
+            "VIRAGO",
+            style: TextStyle(
                 color: Colors.black,
-              ),
-              onPressed: () {})
-        ],
+                letterSpacing: 20,
+                fontSize: 25,
+                fontWeight: FontWeight.w400),
+          ),
+        ),
       ),
       body: Container(
           child: FirebaseAnimatedList(
@@ -43,95 +45,100 @@ class _BlogsState extends State<Blogs> {
                     return snapshot1.hasData
                         ? Center(
                             child: Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Card(
-                                elevation: 12,
-                                child: Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    height:
-                                        MediaQuery.of(context).size.height / 2,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                snapshot1.data.value['image']),
-                                            colorFilter: new ColorFilter.mode(
-                                                Colors.black.withOpacity(0.5),
-                                                BlendMode.dstATop),
-                                            fit: BoxFit.cover)),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height /
-                                                3.5),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFFFC0CB),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 5, 20, 5),
+                                      child: Text(
+                                        snapshot1.data.value['username'],
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w600,
+                                            letterSpacing: 1,
+                                            fontSize: 30),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 5, 5, 0),
+                                      child: Text(
+                                        snapshot1.data.value['post']
+                                            .toString()
+                                            .substring(0, 79),
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 18),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 0, 20, 5),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return AlertDialog(
+                                                  scrollable: true,
+                                                  content: Text(snapshot1
+                                                      .data.value['post']),
+                                                );
+                                              });
+                                        },
+                                        child: Container(
                                           child: Text(
-                                            snapshot1.data.value['username'],
+                                            "Read More...",
                                             style: TextStyle(
-                                                shadows: [
-                                                  Shadow(
-                                                    color: Colors.white,
-                                                    blurRadius: 20.0,
-                                                  )
-                                                ],
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 40),
+                                                fontSize: 17),
                                           ),
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                            snapshot1.data.value['post']
-                                                .toString()
-                                                .substring(0, 79),
-                                            style: TextStyle(
-                                                shadows: [
-                                                  Shadow(
-                                                    color: Colors.white,
-                                                    blurRadius: 20.0,
-                                                  ),
-                                                ],
-                                                color: Colors.black87,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 20),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(2.0),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              showDialog(
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return AlertDialog(
-                                                      scrollable: true,
-                                                      content: Text(snapshot1
-                                                          .data.value['post']),
-                                                    );
-                                                  });
-                                            },
-                                            child: Text(
-                                              "readmore",
-                                              style: TextStyle(
-                                                  shadows: [
-                                                    Shadow(
-                                                      color: Colors.white,
-                                                      blurRadius: 20.0,
-                                                    ),
-                                                  ],
-                                                  color: Colors.red,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 20),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 550,
+                                      height: 404,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: NetworkImage(snapshot1
+                                                  .data.value['image']),
+                                              fit: BoxFit.cover)),
+                                    ),
+                                    Container(
+                                      child: Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            20, 5, 20, 5),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.heart,
+                                              color: Colors.red,
+                                              size: 30,
                                             ),
-                                          ),
-                                        )
-                                      ],
-                                    )),
+                                            Icon(
+                                              MdiIcons.share,
+                                              color: Colors.white,
+                                              size: 30,
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           )

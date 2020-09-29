@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hackathon2/Blogs%20and%20post/blogs.dart';
 import 'package:hackathon2/Blogs%20and%20post/post.dart';
 import 'package:hackathon2/global.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class Bottom extends StatefulWidget {
   @override
@@ -72,11 +71,11 @@ class _BottomState extends State<Bottom> {
       body: widget1.elementAt(index),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Color(0xFFFF69B4),
+          canvasColor: Colors.pink,
         ),
         child: BottomNavigationBar(
             showSelectedLabels: true,
-            unselectedItemColor: Colors.black,
+            unselectedItemColor: Colors.white,
             showUnselectedLabels: true,
             elevation: 18,
             type: BottomNavigationBarType.shifting,
@@ -85,17 +84,11 @@ class _BottomState extends State<Bottom> {
             onTap: tapped,
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: "Home",
-              ),
+                  icon: Icon(Icons.home), title: Text("Home")),
               BottomNavigationBarItem(
-                icon: Icon(Icons.add_box_outlined),
-                label: "Post",
-              ),
+                  icon: Icon(Icons.add), title: Text("Add")),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: "Profile",
-              )
+                  icon: Icon(Icons.person), title: Text("Profile"))
             ]),
       ),
     );
