@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon2/Appoitment/Makeapt.dart';
 
 class Request extends StatefulWidget {
   final int index;
@@ -17,14 +18,26 @@ class _RequestState extends State<Request> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Center(
+          child: Text(
+            "APPOINTMENT",
+            style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 5,
+                fontSize: 20,
+                fontWeight: FontWeight.w400),
+          ),
+        ),
+      ),
       body: Hero(
         tag: widget.index,
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: 28,
-              ),
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 2,
@@ -98,8 +111,25 @@ class _RequestState extends State<Request> {
                 height: 70,
               ),
               Center(
-                child: RaisedButton(
-                    child: Text("Make an appointment"), onPressed: () {}),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Makeapt()));
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 300,
+                    decoration: BoxDecoration(
+                        color: Color(0xFFFFC0CB),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Center(
+                        child: Text(
+                      "Book an appointment",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                    )),
+                  ),
+                ),
               )
             ],
           ),

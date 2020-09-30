@@ -76,11 +76,11 @@ class _BottomState extends State<Bottom> {
       body: widget1.elementAt(index),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Color(0xFFFF69B4),
+          canvasColor: Color(0xFF222222),
         ),
         child: BottomNavigationBar(
             showSelectedLabels: true,
-            unselectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white70,
             showUnselectedLabels: true,
             elevation: 18,
             type: BottomNavigationBarType.shifting,
@@ -88,12 +88,14 @@ class _BottomState extends State<Bottom> {
             currentIndex: index,
             onTap: tapped,
             items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-              BottomNavigationBarItem(icon: Icon(Icons.add), label: "Add"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.people_outline), label: "Appointment"),
+                  icon: Icon(Icons.home), title: Text("Home")),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: "Profile")
+                  icon: Icon(Icons.add), title: Text("Add")),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.people_outline), title: Text("Appointment")),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person), title: Text("Profile"))
             ]),
       ),
     );

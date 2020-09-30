@@ -22,24 +22,26 @@ class _BlogsState extends State<Blogs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        elevation: 0.0,
-        actions: [
-          IconButton(
-              icon: Icon(
-                Icons.person,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Center(
+          child: Text(
+            "VIRAGO",
+            style: TextStyle(
                 color: Colors.black,
-              ),
-              onPressed: () {})
-        ],
+                letterSpacing: 20,
+                fontSize: 25,
+                fontWeight: FontWeight.w400),
+          ),
+        ),
       ),
       body: Container(
           child: FirebaseAnimatedList(
               sort: (a, b) => (b.key.compareTo(a.key)),
               defaultChild: Center(
                 child: CircularProgressIndicator(
-                  backgroundColor: Colors.black,
+                  backgroundColor: Colors.white,
                 ),
               ),
               query: database1,
@@ -63,19 +65,19 @@ class _BlogsState extends State<Blogs> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                          10, 5, 20, 5),
+                                          10, 10, 20, 5),
                                       child: Text(
                                         snapshot1.data.value['username'],
                                         style: TextStyle(
                                             color: Colors.black,
-                                            fontWeight: FontWeight.w600,
+                                            fontWeight: FontWeight.w900,
                                             letterSpacing: 1,
-                                            fontSize: 30),
+                                            fontSize: 20),
                                       ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                          10, 5, 5, 0),
+                                          10, 0, 5, 0),
                                       child: Text(
                                         snapshot1.data.value['post']
                                             .toString()
@@ -83,12 +85,12 @@ class _BlogsState extends State<Blogs> {
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.w400,
-                                            fontSize: 18),
+                                            fontSize: 16),
                                       ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                          10, 0, 20, 5),
+                                          10, 0, 20, 10),
                                       child: GestureDetector(
                                         onTap: () {
                                           showDialog(
@@ -98,41 +100,26 @@ class _BlogsState extends State<Blogs> {
                                                   scrollable: true,
                                                   content: Text(snapshot1
                                                       .data.value['post']),
-                                                  actions: [
-                                                    IconButton(
-                                                        icon: Icon(
-                                                          Icons.comment,
-                                                          color: Colors.black,
-                                                        ),
-                                                        onPressed: () {
-                                                          Navigator.push(
-                                                              context,
-                                                              MaterialPageRoute(
-                                                                  builder:
-                                                                      (context) =>
-                                                                          Comment1(
-                                                                            comment1:
-                                                                                snapshot1.data.value['uid'],
-                                                                          )));
-                                                        })
-                                                  ],
                                                 );
                                               });
                                         },
-                                        child: Container(
-                                          child: Text(
-                                            "Read More...",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 17),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(0.0),
+                                          child: Container(
+                                            child: Text(
+                                              "Read More...",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 17),
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                     Container(
                                       width: 550,
-                                      height: 404,
+                                      height: 300,
                                       decoration: BoxDecoration(
                                           image: DecorationImage(
                                               image: NetworkImage(snapshot1
@@ -140,25 +127,45 @@ class _BlogsState extends State<Blogs> {
                                               fit: BoxFit.cover)),
                                     ),
                                     Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            20, 5, 20, 5),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Icon(
-                                              MdiIcons.heart,
-                                              color: Colors.red,
-                                              size: 30,
-                                            ),
-                                            Icon(
-                                              MdiIcons.share,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            MdiIcons.heart,
+                                            color: Colors.red,
+                                            size: 30,
+                                          ),
+                                          SizedBox(
+                                            width: 100,
+                                          ),
+                                          GestureDetector(
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          Comment1(
+                                                            comment1: snapshot1
+                                                                .data
+                                                                .value['uid'],
+                                                          )));
+                                            },
+                                            child: Icon(
+                                              Icons.insert_comment,
                                               color: Colors.white,
                                               size: 30,
-                                            )
-                                          ],
-                                        ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 100,
+                                          ),
+                                          Icon(
+                                            MdiIcons.share,
+                                            color: Colors.black,
+                                            size: 30,
+                                          )
+                                        ],
                                       ),
                                     ),
                                   ],
