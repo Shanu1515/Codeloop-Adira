@@ -1,8 +1,11 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:hackathon2/Appoitment/appointment.dart';
 import 'package:hackathon2/Blogs%20and%20post/blogs.dart';
 import 'package:hackathon2/Blogs%20and%20post/post.dart';
+import 'package:hackathon2/Doctor/Login1%20and%20signup1/Firstscreen/appointment.dart';
 import 'package:hackathon2/global.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Bottom extends StatefulWidget {
   @override
@@ -64,14 +67,16 @@ class _BottomState extends State<Bottom> {
   Widget build(BuildContext context) {
     List<Widget> widget1 = [
       Blogs(),
-      Post(), /*Profile()*/
+      Post(),
+      Appointment3(),
+      /*Profile()*/
     ];
 
     return Scaffold(
       body: widget1.elementAt(index),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Colors.pink,
+          canvasColor: Color(0xFFFF69B4),
         ),
         child: BottomNavigationBar(
             showSelectedLabels: true,
@@ -83,12 +88,12 @@ class _BottomState extends State<Bottom> {
             currentIndex: index,
             onTap: tapped,
             items: [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+              BottomNavigationBarItem(icon: Icon(Icons.add), label: "Add"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.home), title: Text("Home")),
+                  icon: Icon(Icons.people_outline), label: "Appointment"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.add), title: Text("Add")),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person), title: Text("Profile"))
+                  icon: Icon(Icons.person), label: "Profile")
             ]),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:hackathon2/Comments/comment.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 DatabaseReference database1;
@@ -21,21 +22,26 @@ class _BlogsState extends State<Blogs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Center(
-          child: Text(
-            "VIRAGO",
-            style: TextStyle(
+        backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
+        elevation: 0.0,
+        actions: [
+          IconButton(
+              icon: Icon(
+                Icons.person,
                 color: Colors.black,
-                letterSpacing: 20,
-                fontSize: 25,
-                fontWeight: FontWeight.w400),
-          ),
-        ),
+              ),
+              onPressed: () {})
+        ],
       ),
       body: Container(
           child: FirebaseAnimatedList(
+              sort: (a, b) => (b.key.compareTo(a.key)),
+              defaultChild: Center(
+                child: CircularProgressIndicator(
+                  backgroundColor: Colors.black,
+                ),
+              ),
               query: database1,
               itemBuilder: (_, DataSnapshot snapshot,
                   Animation<double> animation, int index) {
@@ -92,6 +98,24 @@ class _BlogsState extends State<Blogs> {
                                                   scrollable: true,
                                                   content: Text(snapshot1
                                                       .data.value['post']),
+                                                  actions: [
+                                                    IconButton(
+                                                        icon: Icon(
+                                                          Icons.comment,
+                                                          color: Colors.black,
+                                                        ),
+                                                        onPressed: () {
+                                                          Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          Comment1(
+                                                                            comment1:
+                                                                                snapshot1.data.value['uid'],
+                                                                          )));
+                                                        })
+                                                  ],
                                                 );
                                               });
                                         },

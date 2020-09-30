@@ -1,20 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackathon2/Choices/Choices.dart';
+import 'package:hackathon2/Doctor/Login1%20and%20signup1/Firstscreen/appointment.dart';
 import 'package:hackathon2/GoogleAuth/google.dart';
 import 'package:hackathon2/global.dart';
 import 'package:hackathon2/messages.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SignIn extends StatefulWidget {
+class SignIn1 extends StatefulWidget {
   final Function toggle;
-  SignIn(this.toggle);
+  SignIn1(this.toggle);
 
   @override
   _SignInState createState() => _SignInState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInState extends State<SignIn1> {
   bool isLoading = false;
   final formkey = GlobalKey<FormState>();
   TextEditingController _email = TextEditingController();
@@ -218,7 +219,8 @@ class _SignInState extends State<SignIn> {
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => Choices()));
+                                              builder: (context) =>
+                                                  Appointment()));
                                     } else {
                                       print("not");
                                     }

@@ -11,21 +11,24 @@ import 'package:uuid/uuid.dart';
 AuthResult authResult;
 String user;
 
-class SignUp extends StatefulWidget {
+class SignUp2 extends StatefulWidget {
   final Function toggle;
-  SignUp(this.toggle);
+  SignUp2(this.toggle);
 
   @override
   _SignUpState createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpState extends State<SignUp2> {
   final formkey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   TextEditingController _name = TextEditingController();
   TextEditingController _email = TextEditingController();
   TextEditingController _pwd = TextEditingController();
   TextEditingController _pwd1 = TextEditingController();
+  TextEditingController _exp = TextEditingController();
+  TextEditingController _fee = TextEditingController();
+  TextEditingController _deg = TextEditingController();
   final _auth = FirebaseAuth.instance;
   bool check = false;
   final picker = ImagePicker();
@@ -34,14 +37,15 @@ class _SignUpState extends State<SignUp> {
   final databaseReference = FirebaseDatabase.instance.reference();
   var uid = Uuid();
 
-  void _trysubmit(
-      BuildContext ctx, String name, String email, String pwd, String pwd1) {
+  void _trysubmit(BuildContext ctx, String name, String email, String pwd,
+      String pwd1, String exp, String fee, String degree) {
     final isvalid = formkey.currentState.validate();
     FocusScope.of(ctx).unfocus();
     if (isvalid) {
       formkey.currentState.save();
     } else {}
-    _submitAuthForm(name.trim(), email.trim(), pwd.trim(), pwd1.trim(), ctx);
+    _submitAuthForm(name.trim(), email.trim(), pwd.trim(), pwd1.trim(),
+        exp.trim(), fee.trim(), degree.trim(), ctx);
   }
 
   void _submitAuthForm(
@@ -49,6 +53,9 @@ class _SignUpState extends State<SignUp> {
     var email1,
     var pwd1,
     var pwd2,
+    var exp,
+    var fee,
+    var degree,
     BuildContext ctx,
   ) async {
     try {
@@ -67,7 +74,7 @@ class _SignUpState extends State<SignUp> {
     } catch (err) {
       print(err);
     }
-    add(name1, email1, pwd1);
+    add(name1, email1, pwd1, exp, fee, degree);
   }
 
   Future uploadToStorage() async {
@@ -110,9 +117,10 @@ class _SignUpState extends State<SignUp> {
     return downloadurl;
   }
 
-  Future<void> add(String username, String useremail, String passwd) async {
+  Future<void> add(String username, String useremail, String passwd, String exp,
+      String fee, String degree) async {
     // var uuid = new Uuid().v1();
-    DatabaseReference _color2 = databaseReference.child("Users").child(user);
+    DatabaseReference _color2 = databaseReference.child("Doctors").child(user);
     final TransactionResult transactionResult =
         await _color2.runTransaction((MutableData mutableData) async {
       mutableData.value = (mutableData.value ?? 0) + 1;
@@ -125,6 +133,9 @@ class _SignUpState extends State<SignUp> {
         "username": "true",
         "email": "true",
         "pwd": "true",
+        "exp": "true",
+        "fee": "true",
+        "degree": "true",
         "uid": "true"
       }).then((_) {
         print('Transaction  committed.');
@@ -140,6 +151,9 @@ class _SignUpState extends State<SignUp> {
       "username": username,
       "email": useremail,
       "pwd": passwd,
+      "exp": exp,
+      "fee": fee,
+      "degree": degree,
       "uid": user
     });
   }
@@ -334,14 +348,107 @@ class _SignUpState extends State<SignUp> {
                                   ),
                                 ),
                               ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                child: Container(
+                                  color: Colors.white10,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        10, 0, 10, 30),
+                                    child: TextFormField(
+                                      keyboardType: TextInputType.number,
+                                      controller: _exp,
+                                      style: TextStyle(color: Colors.black),
+                                      decoration: InputDecoration(
+                                        hintText: "Experience",
+                                        hintStyle:
+                                            TextStyle(color: Colors.black54),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                child: Container(
+                                  color: Colors.white10,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        10, 0, 10, 30),
+                                    child: TextFormField(
+                                      keyboardType: TextInputType.number,
+                                      controller: _fee,
+                                      style: TextStyle(color: Colors.black),
+                                      decoration: InputDecoration(
+                                        hintText: "Fee",
+                                        hintStyle:
+                                            TextStyle(color: Colors.black54),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                child: Container(
+                                  color: Colors.white10,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        10, 0, 10, 30),
+                                    child: TextFormField(
+                                      controller: _deg,
+                                      style: TextStyle(color: Colors.black),
+                                      decoration: InputDecoration(
+                                        hintText: "degree",
+                                        hintStyle:
+                                            TextStyle(color: Colors.black54),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
-                          _trysubmit(context, _name.text, _email.text,
-                              _pwd.text, _pwd1.text);
+                          _trysubmit(
+                              context,
+                              _name.text,
+                              _email.text,
+                              _pwd.text,
+                              _pwd1.text,
+                              _exp.text,
+                              _fee.text,
+                              _deg.text);
                         },
                         child: Container(
                           height: 40,
