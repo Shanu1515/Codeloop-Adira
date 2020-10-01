@@ -1,52 +1,50 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:hackathon2/Appoitment/Appointmentlist.dart';
-import 'package:hackathon2/Appoitment/appointmentrequest.dart';
+import 'package:hackathon2/Appoitment/Show.dart';
 
-DatabaseReference database1;
+DatabaseReference databaseReference;
 
-class Appointment3 extends StatefulWidget {
+class List extends StatefulWidget {
   @override
-  _AppointmentState createState() => _AppointmentState();
+  _ListState createState() => _ListState();
 }
 
-class _AppointmentState extends State<Appointment3> {
+class _ListState extends State<List> {
   @override
   void initState() {
     super.initState();
-    database1 = FirebaseDatabase.instance.reference().child("Doctors");
+    databaseReference =
+        FirebaseDatabase.instance.reference().child("Appointments");
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          IconButton(
-              icon: Icon(Icons.list),
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => List()));
-              })
-        ],
-        elevation: 0,
-        backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
-          "List of Doctors",
-          style: TextStyle(color: Colors.black),
+        automaticallyImplyLeading: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Center(
+          child: Text(
+            "APPOINTMENT LISTS",
+            style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 3,
+                fontSize: 20,
+                fontWeight: FontWeight.w400),
+          ),
         ),
       ),
       body: Container(
         child: FirebaseAnimatedList(
-            defaultChild: Center(child: CircularProgressIndicator()),
-            query: database1,
+            query: databaseReference,
             itemBuilder: (_, DataSnapshot snapshot, Animation<double> animation,
                 int index) {
               return FutureBuilder<DataSnapshot>(
-                future: database1.reference().child(snapshot.key).once(),
+                future:
+                    databaseReference.reference().child(snapshot.key).once(),
                 builder: (context, snapshot1) {
                   return snapshot1.hasData
                       ? Hero(
@@ -56,16 +54,22 @@ class _AppointmentState extends State<Appointment3> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Request(
+                                      builder: (context) => Show(
+                                            address:
+                                                snapshot1.data.value['address'],
+                                            age: snapshot1
+                                                .data.value['patientage'],
                                             index: index,
-                                            doctorname: snapshot1
-                                                .data.value['username'],
-                                            doctorimage:
+                                            contact:
+                                                snapshot1.data.value['contact'],
+                                            name: snapshot1
+                                                .data.value['patientname'],
+                                            image:
                                                 snapshot1.data.value['image'],
-                                            fee: snapshot1.data.value['fee'],
-                                            degree:
-                                                snapshot1.data.value['degree'],
-                                            exp: snapshot1.data.value['exp'],
+                                            report:
+                                                snapshot1.data.value['report'],
+                                            check:
+                                                snapshot1.data.value['check'],
                                           )));
                             },
                             child: Row(
@@ -73,16 +77,15 @@ class _AppointmentState extends State<Appointment3> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: CircleAvatar(
-                                    backgroundColor: Colors.transparent,
-                                    radius: 30,
-                                    backgroundImage: NetworkImage(
-                                        snapshot1.data.value['image']),
-                                  ),
+                                      backgroundColor: Colors.transparent,
+                                      radius: 30,
+                                      backgroundImage: NetworkImage(
+                                          snapshot1.data.value['drimage'])),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(12.0),
                                   child: Text(
-                                    snapshot1.data.value['username'],
+                                    snapshot1.data.value['drname'],
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 25,

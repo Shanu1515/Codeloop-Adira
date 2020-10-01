@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hackathon2/Appoitment/appointment.dart';
 import 'package:hackathon2/Blogs%20and%20post/blogs.dart';
 import 'package:hackathon2/Blogs%20and%20post/post.dart';
-import 'package:hackathon2/Doctor/Login1%20and%20signup1/Firstscreen/appointment.dart';
+import 'package:hackathon2/Doctor/Firstscreen/appointment.dart';
 import 'package:hackathon2/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

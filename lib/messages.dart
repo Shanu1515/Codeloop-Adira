@@ -60,11 +60,13 @@ class _MessageState extends State<Message> {
     return Scaffold(
         backgroundColor: Color(0xFFFFC0CB),
         appBar: AppBar(
+          automaticallyImplyLeading: true,
+          iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           elevation: 0,
           title: Center(
             child: Text(
-              "VIRAGO",
+              "ADIRA",
               style: TextStyle(
                   color: Colors.black,
                   letterSpacing: 20,

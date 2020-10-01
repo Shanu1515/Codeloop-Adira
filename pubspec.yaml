@@ -36,6 +36,7 @@ dependencies:
   firebase_storage: ^3.1.1
   shared_preferences: ^0.5.12
   firebase_database: 
+  introduction_screen:
   uuid: ^2.0.4
   image_picker: ^0.6.3+1
   bubble: 
@@ -69,6 +70,10 @@ flutter:
      - assets/2.jpg
      - assets/3.jpg
      - assets/4.jpg
+     - assets/p1.png
+     - assets/p2.png
+     - assets/p3.png
+     - assets/p4.png
      - assets/5.png
      - assets/doctor.gif
      - assets/6.jpg

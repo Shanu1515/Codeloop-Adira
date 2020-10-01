@@ -45,7 +45,7 @@ class _OneState extends State<One> {
                                     fontWeight: FontWeight.w900),
                               )),
                               Text(
-                                "VIRAGO",
+                                "ADIRA",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     fontSize: 45,
@@ -61,7 +61,7 @@ class _OneState extends State<One> {
                           color: Colors.black,
                           child: Center(
                             child: Container(
-                              height: 100,
+                              height: 130,
                               width: 100,
                               decoration: BoxDecoration(
                                 image: DecorationImage(

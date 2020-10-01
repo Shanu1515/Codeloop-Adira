@@ -27,7 +27,7 @@ class _BlogsState extends State<Blogs> {
         elevation: 0,
         title: Center(
           child: Text(
-            "VIRAGO",
+            "ADIRA",
             style: TextStyle(
                 color: Colors.black,
                 letterSpacing: 20,

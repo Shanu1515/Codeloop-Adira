@@ -74,7 +74,7 @@ class _SignInState extends State<SignIn> {
                     height: 30,
                   ),
                   Text(
-                    "STARTING VIRAGO",
+                    "STARTING ADIRA",
                     style: TextStyle(
                       fontSize: 25,
                       color: Colors.white,

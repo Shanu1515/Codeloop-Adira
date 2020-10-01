@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackathon2/Choices/Choices.dart';
-import 'package:hackathon2/Doctor/Login1%20and%20signup1/Firstscreen/appointment.dart';
+import 'package:hackathon2/Doctor/Firstscreen/appointment.dart';
 import 'package:hackathon2/GoogleAuth/google.dart';
 import 'package:hackathon2/global.dart';
 import 'package:hackathon2/messages.dart';
