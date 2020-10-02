@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon2/Chat/1.dart';
+import 'Chatscreen.dart';
 
 class Show extends StatefulWidget {
   final int index;
@@ -9,6 +11,7 @@ class Show extends StatefulWidget {
   final String image;
   final String report;
   final String check;
+  final String uid;
   const Show(
       {Key key,
       this.index,
@@ -18,7 +21,8 @@ class Show extends StatefulWidget {
       this.address,
       this.image,
       this.report,
-      this.check})
+      this.check,
+      this.uid})
       : super(key: key);
   @override
   _ShowState createState() => _ShowState();
@@ -137,7 +141,16 @@ class _ShowState extends State<Show> {
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      if (widget.check == "false") {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MyApp(
+                                      uid: widget.uid,
+                                    )));
+                      }
+                    },
                     child: Container(
                       height: 40,
                       child: Center(

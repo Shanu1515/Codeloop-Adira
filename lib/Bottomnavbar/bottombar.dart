@@ -1,10 +1,14 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathon2/Appoitment/appointment.dart';
 import 'package:hackathon2/Blogs%20and%20post/blogs.dart';
 import 'package:hackathon2/Blogs%20and%20post/post.dart';
+import 'package:hackathon2/Community/commmunity.dart';
 import 'package:hackathon2/Doctor/Firstscreen/appointment.dart';
+import 'package:hackathon2/Donation/donation.dart';
 import 'package:hackathon2/global.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Bottom extends StatefulWidget {
@@ -67,9 +71,10 @@ class _BottomState extends State<Bottom> {
   Widget build(BuildContext context) {
     List<Widget> widget1 = [
       Blogs(),
+      Donation(),
       Post(),
       Appointment3(),
-      /*Profile()*/
+      Community()
     ];
 
     return Scaffold(
@@ -83,7 +88,7 @@ class _BottomState extends State<Bottom> {
             unselectedItemColor: Colors.white70,
             showUnselectedLabels: true,
             elevation: 18,
-            type: BottomNavigationBarType.shifting,
+            type: BottomNavigationBarType.fixed,
             selectedItemColor: Colors.white,
             currentIndex: index,
             onTap: tapped,
@@ -91,11 +96,14 @@ class _BottomState extends State<Bottom> {
               BottomNavigationBarItem(
                   icon: Icon(Icons.home), title: Text("Home")),
               BottomNavigationBarItem(
+                  icon: Icon(FontAwesomeIcons.handHoldingUsd),
+                  title: Text("Donation")),
+              BottomNavigationBarItem(
                   icon: Icon(Icons.add), title: Text("Add")),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.people_outline), title: Text("Appointment")),
+                  icon: Icon(MdiIcons.doctor), title: Text("Appointment")),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person), title: Text("Profile"))
+                  icon: Icon(Icons.group_outlined), title: Text("Community"))
             ]),
       ),
     );
