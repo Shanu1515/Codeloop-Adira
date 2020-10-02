@@ -127,45 +127,49 @@ class _BlogsState extends State<Blogs> {
                                               fit: BoxFit.cover)),
                                     ),
                                     Container(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            MdiIcons.heart,
-                                            color: Colors.red,
-                                            size: 30,
-                                          ),
-                                          SizedBox(
-                                            width: 100,
-                                          ),
-                                          GestureDetector(
-                                            onTap: () {
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          Comment1(
-                                                            comment1: snapshot1
-                                                                .data
-                                                                .value['uid'],
-                                                          )));
-                                            },
-                                            child: Icon(
-                                              Icons.insert_comment,
-                                              color: Colors.white,
+                                      child: Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            0, 10, 0, 10),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              MdiIcons.heart,
+                                              color: Colors.red,
                                               size: 30,
                                             ),
-                                          ),
-                                          SizedBox(
-                                            width: 100,
-                                          ),
-                                          Icon(
-                                            MdiIcons.share,
-                                            color: Colors.black,
-                                            size: 30,
-                                          )
-                                        ],
+                                            SizedBox(
+                                              width: 100,
+                                            ),
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            Comment1(
+                                                              comment1: snapshot1
+                                                                  .data
+                                                                  .value['uid'],
+                                                            )));
+                                              },
+                                              child: Icon(
+                                                Icons.insert_comment,
+                                                color: Colors.white,
+                                                size: 30,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 100,
+                                            ),
+                                            Icon(
+                                              MdiIcons.share,
+                                              color: Colors.black,
+                                              size: 30,
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],

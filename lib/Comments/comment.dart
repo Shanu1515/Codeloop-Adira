@@ -18,6 +18,7 @@ class Comment1 extends StatefulWidget {
 }
 
 class _CommentState extends State<Comment1> {
+  bool isLoading = false;
   TextEditingController _comment = TextEditingController();
   @override
   void initState() {
@@ -29,6 +30,9 @@ class _CommentState extends State<Comment1> {
   }
 
   Future<String> add(String comment, String image, String name) async {
+    setState(() {
+      isLoading = true;
+    });
     var uuid = new Uuid().v1();
     DatabaseReference _color2 =
         databaseReference.child("Comments").child(widget.comment1).child(uuid);
@@ -39,6 +43,9 @@ class _CommentState extends State<Comment1> {
       return mutableData;
     });
     if (transactionResult.committed) {
+      setState(() {
+        isLoading = false;
+      });
       _color2.push().set(<String, String>{
         "image": "true",
         "postname": "true",
@@ -64,104 +71,118 @@ class _CommentState extends State<Comment1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(
-          "Comments",
-          style: TextStyle(color: Colors.black),
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text(
+            "Comments",
+            style: TextStyle(color: Colors.black),
+          ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              //color: Colors.red,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 1.3,
-              child: FirebaseAnimatedList(
-                  sort: (a, b) => (b.key.compareTo(a.key)),
-                  defaultChild: Center(
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.black,
-                    ),
+        body: isLoading
+            ? Container(
+                child: Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.white,
                   ),
-                  query: database1,
-                  itemBuilder: (_, DataSnapshot snapshot,
-                      Animation<double> animation, int index) {
-                    return FutureBuilder<DataSnapshot>(
-                      future: database1.reference().child(snapshot.key).once(),
-                      builder: (context, snapshot1) {
-                        return snapshot1.hasData
-                            ? Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 30,
-                                      backgroundImage: NetworkImage(
-                                          snapshot1.data.value['image']),
-                                    ),
-                                    SizedBox(
-                                      width: 20,
-                                    ),
-                                    Text(
-                                      snapshot1.data.value['username'] + ": ",
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                    Flexible(
-                                      child: Text(
-                                        snapshot1.data.value['post'],
-                                        style: TextStyle(color: Colors.black),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            : Container();
-                      },
-                    );
-                  }),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.transparent,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width / 1.2,
-                        child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: TextField(
-                              controller: _comment,
-                              decoration: InputDecoration.collapsed(
-                                  border: InputBorder.none,
-                                  hintText: "Comments",
-                                  hintStyle:
-                                      TextStyle(color: Colors.grey[500])),
-                            )),
-                      ),
-                      IconButton(
-                          icon: Icon(
-                            Icons.send,
-                            color: Colors.black,
+                ),
+              )
+            : SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Container(
+                      //color: Colors.red,
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height / 1.3,
+                      child: FirebaseAnimatedList(
+                          sort: (a, b) => (b.key.compareTo(a.key)),
+                          defaultChild: Center(
+                            child: CircularProgressIndicator(
+                              backgroundColor: Colors.black,
+                            ),
                           ),
-                          onPressed: () {
-                            add(_comment.text, globalimage, globalname);
-                            _comment.clear();
-                          })
-                    ],
-                  )),
-            )
-          ],
-        ),
-      ),
-    );
+                          query: database1,
+                          itemBuilder: (_, DataSnapshot snapshot,
+                              Animation<double> animation, int index) {
+                            return FutureBuilder<DataSnapshot>(
+                              future: database1
+                                  .reference()
+                                  .child(snapshot.key)
+                                  .once(),
+                              builder: (context, snapshot1) {
+                                return snapshot1.hasData
+                                    ? Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          children: [
+                                            CircleAvatar(
+                                              radius: 30,
+                                              backgroundImage: NetworkImage(
+                                                  snapshot1
+                                                      .data.value['image']),
+                                            ),
+                                            SizedBox(
+                                              width: 20,
+                                            ),
+                                            Text(
+                                              snapshot1.data.value['username'] +
+                                                  ": ",
+                                              style: TextStyle(
+                                                  color: Colors.black),
+                                            ),
+                                            Flexible(
+                                              child: Text(
+                                                snapshot1.data.value['post'],
+                                                style: TextStyle(
+                                                    color: Colors.black),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    : Container();
+                              },
+                            );
+                          }),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          color: Colors.transparent,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.2,
+                                child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: TextField(
+                                      controller: _comment,
+                                      decoration: InputDecoration.collapsed(
+                                          border: InputBorder.none,
+                                          hintText: "Comments",
+                                          hintStyle: TextStyle(
+                                              color: Colors.grey[500])),
+                                    )),
+                              ),
+                              IconButton(
+                                  icon: Icon(
+                                    Icons.send,
+                                    color: Colors.black,
+                                  ),
+                                  onPressed: () {
+                                    add(_comment.text, globalimage, globalname);
+                                    _comment.clear();
+                                  })
+                            ],
+                          )),
+                    )
+                  ],
+                ),
+              ));
   }
 }
