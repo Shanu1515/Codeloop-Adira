@@ -45,7 +45,7 @@ class _ChatState extends State<Chat> {
         actions: [
           IconButton(
               icon: Icon(
-                Icons.video_call_outlined,
+                Icons.video_call,
                 color: Colors.black,
               ),
               onPressed: () {
