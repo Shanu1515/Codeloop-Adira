@@ -47,7 +47,11 @@ dependencies:
   image_picker: ^0.6.3+1
   bubble: 
   material_design_icons_flutter: ^4.0.5655
+  razorpay_flutter: ^1.2.2
+  fluttertoast: ^7.0.1+1
   intl:
+  
+
   
 
 dev_dependencies:

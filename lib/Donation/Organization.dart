@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon2/Donation/payment.dart';
 
 class Organization extends StatefulWidget {
   @override
@@ -318,15 +319,24 @@ class _OrganizationState extends State<Organization> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Container(
-                                color: Colors.blue,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "DONATE NOW",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
+                              GestureDetector(
+                                onTap: () {
+                                   Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+                                },
+
+                                                              child: Container(
+                                  color: Colors.blue,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      "DONATE NOW",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -414,15 +424,23 @@ class _OrganizationState extends State<Organization> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Container(
-                                color: Colors.blue,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "DONATE NOW",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
+                              GestureDetector(
+                                onTap: () {
+                                   Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+                                },
+                                                              child: Container(
+                                  color: Colors.blue,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      "DONATE NOW",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -510,15 +528,23 @@ class _OrganizationState extends State<Organization> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Container(
-                                color: Colors.blue,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "DONATE NOW",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
+                              GestureDetector(
+                                onTap: () {
+                                   Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+                                },
+                                                              child: Container(
+                                  color: Colors.blue,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      "DONATE NOW",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -599,15 +625,23 @@ class _OrganizationState extends State<Organization> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Container(
-                                color: Colors.blue,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "DONATE NOW",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
+                              GestureDetector(
+                                onTap: () {
+                                   Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+                                },
+                                                              child: Container(
+                                  color: Colors.blue,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      "DONATE NOW",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -681,15 +715,23 @@ class _OrganizationState extends State<Organization> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Container(
-                                color: Colors.blue,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "DONATE NOW",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
+                              GestureDetector(
+                                onTap: () {
+                                   Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+                                },
+                                                              child: Container(
+                                  color: Colors.blue,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      "DONATE NOW",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -763,15 +805,23 @@ class _OrganizationState extends State<Organization> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Container(
-                                color: Colors.blue,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "DONATE NOW",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
+                              GestureDetector(
+                                onTap: () {
+                                   Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+                                },
+                                                              child: Container(
+                                  color: Colors.blue,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      "DONATE NOW",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white),
+                                    ),
                                   ),
                                 ),
                               ),
