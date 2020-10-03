@@ -66,13 +66,15 @@ class _BlogsState extends State<Blogs> {
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
                                           10, 10, 20, 5),
-                                      child: Text(
-                                        snapshot1.data.value['username'],
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w900,
-                                            letterSpacing: 1,
-                                            fontSize: 20),
+                                      child: Center(
+                                        child: Text(
+                                          snapshot1.data.value['username'],
+                                          style: TextStyle(
+                                              color: Colors.black87,
+                                              fontWeight: FontWeight.w900,
+                                              letterSpacing: 3,
+                                              fontSize: 20),
+                                        ),
                                       ),
                                     ),
                                     Padding(

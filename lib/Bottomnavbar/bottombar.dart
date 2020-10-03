@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:hackathon2/Appoitment/appointment.dart';
 import 'package:hackathon2/Blogs%20and%20post/blogs.dart';
 import 'package:hackathon2/Blogs%20and%20post/post.dart';
-import 'package:hackathon2/Doctor/Firstscreen/appointment.dart';
+import 'package:hackathon2/Donation/Donation.dart';
 import 'package:hackathon2/global.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Bottom extends StatefulWidget {
   @override
@@ -69,7 +69,7 @@ class _BottomState extends State<Bottom> {
       Blogs(),
       Post(),
       Appointment3(),
-      /*Profile()*/
+      Donation(),
     ];
 
     return Scaffold(
@@ -95,7 +95,7 @@ class _BottomState extends State<Bottom> {
               BottomNavigationBarItem(
                   icon: Icon(Icons.people_outline), title: Text("Appointment")),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person), title: Text("Profile"))
+                  icon: Icon(MdiIcons.wallet), title: Text("Donation"))
             ]),
       ),
     );
