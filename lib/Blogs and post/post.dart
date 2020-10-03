@@ -53,85 +53,98 @@ class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(0xFFFFC0CB),
         body: SingleChildScrollView(
-      child: Form(
-        key: formkey,
-        child: Column(
-          children: [
-            SizedBox(
-              height: 50,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    backgroundImage: NetworkImage(globalimage),
-                    radius: 30,
+          child: Form(
+            key: formkey,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 50,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        backgroundImage: NetworkImage(globalimage),
+                        radius: 30,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        globalname,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 28),
+                      )
+                    ],
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    globalname,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
-                  )
-                ],
-              ),
-            ),
-            Card(
-              elevation: 0,
-              child: Container(
-                color: Colors.grey[100],
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 1.6,
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      validator: (val) {
-                        return val.length > 79
-                            ? null
-                            : "Text Should be of minimun 100 letters";
-                      },
-                      controller: posttext,
-                      maxLines: null,
-                      textInputAction: TextInputAction.done,
-                      keyboardType: TextInputType.multiline,
-                      enableSuggestions: true,
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Share your experience",
-                          hintStyle:
-                              TextStyle(color: Colors.black38, fontSize: 20)),
+                ),
+                Card(
+                  color: Colors.transparent,
+                  elevation: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    width: 400,
+                    height: 500,
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        child: TextFormField(
+                          validator: (val) {
+                            return val.length > 79
+                                ? null
+                                : "Text Should be of minimun 100 letters";
+                          },
+                          controller: posttext,
+                          maxLines: null,
+                          textInputAction: TextInputAction.done,
+                          keyboardType: TextInputType.multiline,
+                          enableSuggestions: true,
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Share your experience",
+                              hintStyle: TextStyle(
+                                  color: Colors.black87, fontSize: 20)),
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
+                Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    width: 200,
+                    child: RaisedButton(
+                        color: Colors.white70,
+                        elevation: 0,
+                        child: Center(
+                          child: Text(
+                            "POST",
+                            style: TextStyle(
+                                color: Colors.black,
+                                letterSpacing: 3,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        onPressed: () {
+                          if (formkey.currentState.validate()) {
+                            formkey.currentState.save();
+                            add(posttext.text, globalimage, globalname);
+                            posttext.clear();
+                          }
+                        }),
+                  ),
+                )
+              ],
             ),
-            Center(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width / 5,
-                child: RaisedButton(
-                    child: Center(
-                      child: Text(
-                        "Share",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                    onPressed: () {
-                      if (formkey.currentState.validate()) {
-                        formkey.currentState.save();
-                        add(posttext.text, globalimage, globalname);
-                        posttext.clear();
-                      }
-                    }),
-              ),
-            )
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 }

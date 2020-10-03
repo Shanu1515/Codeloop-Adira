@@ -262,7 +262,7 @@ class _DonationState extends State<Donation> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         PageTransition(
                             type: PageTransitionType.fade,

@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:uuid/uuid.dart';
 
 AuthResult authResult;
@@ -200,6 +201,10 @@ class _SignUpState extends State<SignUp2> {
                               SizedBox(
                                 height: 10,
                               ),
+                              Text("Add your profile image",style: TextStyle(fontSize: 17,),),
+                              SizedBox(
+                                height: 10,
+                              ),
                               GestureDetector(
                                 onTap: () async {
                                   uploadToStorage();
@@ -321,7 +326,7 @@ class _SignUpState extends State<SignUp2> {
                                   color: Colors.white10,
                                   child: Padding(
                                     padding: const EdgeInsets.fromLTRB(
-                                        10, 0, 10, 30),
+                                        10, 0, 10, 10),
                                     child: TextFormField(
                                       controller: _pwd1,
                                       validator: (val) {
@@ -355,7 +360,7 @@ class _SignUpState extends State<SignUp2> {
                                   color: Colors.white10,
                                   child: Padding(
                                     padding: const EdgeInsets.fromLTRB(
-                                        10, 0, 10, 30),
+                                        10, 0, 10, 10),
                                     child: TextFormField(
                                       keyboardType: TextInputType.number,
                                       controller: _exp,
@@ -384,13 +389,13 @@ class _SignUpState extends State<SignUp2> {
                                   color: Colors.white10,
                                   child: Padding(
                                     padding: const EdgeInsets.fromLTRB(
-                                        10, 0, 10, 30),
+                                        10, 0, 10, 10),
                                     child: TextFormField(
                                       keyboardType: TextInputType.number,
                                       controller: _fee,
                                       style: TextStyle(color: Colors.black),
                                       decoration: InputDecoration(
-                                        hintText: "Fee",
+                                        hintText: "Your Fees in USD",
                                         hintStyle:
                                             TextStyle(color: Colors.black54),
                                         focusedBorder: OutlineInputBorder(
@@ -413,7 +418,7 @@ class _SignUpState extends State<SignUp2> {
                                   color: Colors.white10,
                                   child: Padding(
                                     padding: const EdgeInsets.fromLTRB(
-                                        10, 0, 10, 30),
+                                        10, 0, 10, 10),
                                     child: TextFormField(
                                       controller: _deg,
                                       style: TextStyle(color: Colors.black),
@@ -433,6 +438,31 @@ class _SignUpState extends State<SignUp2> {
                                     ),
                                   ),
                                 ),
+                              ),
+                              Container(
+                                height: 50,
+                                width: 300,
+                                color: Color(0xFFFFC0CB),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      MdiIcons.attachment,
+                                      size: 30,
+                                    ),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text(
+                                      "Upload your documents\nto be verified.",
+                                      style: TextStyle(fontSize: 17),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
                               ),
                             ],
                           ),
