@@ -1,7 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:hackathon2/Chat/1.dart';
-import 'package:hackathon2/Doctor/Chat/1.dart';
+//import 'package:hackathon2/Doctor/Chat/1.dart';
 import 'package:hackathon2/global.dart';
 
 String abc;
@@ -198,12 +198,12 @@ class _SecondState extends State<Second> {
                     onTap: () {
                       add(widget.image, widget.name, widget.age, widget.contact,
                           widget.address, widget.report, widget.uid, "false");
-                      Navigator.push(
+                      /*   Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => MyApp1(
                                     uid: widget.uid,
-                                  )));
+                                  )));*/
                     },
                     child: Container(
                       height: 40,

@@ -23,7 +23,6 @@ class ChatModel extends Model {
     friendList = users
         .where((user) => user.chatID != currentUser.chatID)
         .toList(); //friend list mein tu hai
-    user1 = friendList[0];
     socketIO = SocketIOManager().createSocketIO(
         'https://chat-flutter-pp.herokuapp.com/', '/',
         query: 'chatID=${currentUser.chatID}'); //socket bana meri id key saath
