@@ -101,7 +101,7 @@ class _BottomState extends State<Bottom> {
               BottomNavigationBarItem(
                   icon: Icon(MdiIcons.doctor), title: Text("Appointment")),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.group_outlined), title: Text("Community"))
+                  icon: Icon(Icons.group_work), title: Text("Community"))
             ]),
       ),
     );
