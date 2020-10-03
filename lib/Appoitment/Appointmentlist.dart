@@ -70,6 +70,7 @@ class _ListState extends State<List> {
                                                 snapshot1.data.value['report'],
                                             check:
                                                 snapshot1.data.value['check'],
+                                            uid: snapshot1.data.value['uid'],
                                           )));
                             },
                             child: Row(
