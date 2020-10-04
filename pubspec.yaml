@@ -45,6 +45,7 @@ dependencies:
   permission_handler: ^3.0.0
   agora_rtc_engine: ^3.0.1-dev.7
   uuid: ^2.0.4
+  delayed_display: ^1.0.3
   image_picker: ^0.6.3+1
   bubble: 
   material_design_icons_flutter: ^4.0.5655
@@ -79,6 +80,19 @@ flutter:
      - assets/1.jpg
      - assets/home.gif
      - assets/self.gif
+     - assets/girl1.jpeg
+     - assets/girl2.jpeg
+     - assets/girl3.jpeg
+     - assets/girl4.jpeg
+     - assets/girl5.jpeg
+     - assets/girl6.jpeg
+     - assets/girl7.jpg
+     - assets/girl8.jpeg
+     - assets/girl9.jpeg
+     - assets/girl10.jpeg
+     - assets/girl11.jpeg
+     - assets/girl12.jpeg
+     - assets/girl13.jpeg
      - assets/2.jpg
      - assets/3.jpg
      - assets/4.jpg

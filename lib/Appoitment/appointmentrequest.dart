@@ -32,7 +32,8 @@ class _RequestState extends State<Request> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        iconTheme: IconThemeData(color: Colors.black),
+        automaticallyImplyLeading: true,
         backgroundColor: Colors.white,
         elevation: 0,
         title: Center(

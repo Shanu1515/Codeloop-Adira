@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hackathon2/Chooselanguage.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 import '../1.dart';
@@ -30,7 +31,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => One()),
+      MaterialPageRoute(builder: (_) => Language()),
     );
   }
 

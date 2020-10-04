@@ -12,6 +12,7 @@ class Show extends StatefulWidget {
   final String report;
   final String check;
   final String uid;
+  final String drimage;
   const Show(
       {Key key,
       this.index,
@@ -22,7 +23,8 @@ class Show extends StatefulWidget {
       this.image,
       this.report,
       this.check,
-      this.uid})
+      this.uid,
+      this.drimage})
       : super(key: key);
   @override
   _ShowState createState() => _ShowState();
@@ -33,12 +35,13 @@ class _ShowState extends State<Show> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        iconTheme: IconThemeData(color: Colors.black),
+        automaticallyImplyLeading: true,
         backgroundColor: Colors.white,
         elevation: 0,
         title: Center(
           child: Text(
-            "APPOINNTMENT STATUS",
+            "APPOINTMENT STATUS",
             style: TextStyle(
                 color: Colors.black,
                 letterSpacing: 5,
@@ -148,6 +151,7 @@ class _ShowState extends State<Show> {
                             MaterialPageRoute(
                                 builder: (context) => MyApp(
                                       uid: widget.uid,
+                                      image: widget.drimage,
                                     )));
                       }
                     },

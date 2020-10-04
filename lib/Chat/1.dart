@@ -6,8 +6,8 @@ import 'chatmodel.dart';
 
 class MyApp extends StatefulWidget {
   final String uid;
-
-  const MyApp({Key key, this.uid}) : super(key: key);
+  final String image;
+  const MyApp({Key key, this.uid, this.image}) : super(key: key);
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -21,6 +21,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         home: AllChatsPage(
           uid: widget.uid,
+          image2: widget.image,
         ),
       ),
     );

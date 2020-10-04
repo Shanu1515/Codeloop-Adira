@@ -19,41 +19,48 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.white,
-            title: Center(
-              child: const Text('PAYMENT GATEWAY',
-                  style: TextStyle(
-                    letterSpacing: 5,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                  )),
-            )),
-        body: Container(
-          child: Center(
-            child: GestureDetector(
-              onTap: openCheckout,
-              child: Container(
-                height: 200,
-                width: 200,
-                child: Center(
-                    child: Text(
-                  "PROCEED TO PAYMENT",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      letterSpacing: 2,
-                      fontWeight: FontWeight.w800),
+    return Scaffold(
+      appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          automaticallyImplyLeading: false,
+          elevation: 0,
+          backgroundColor: Colors.white,
+          title: Center(
+            child: const Text('PAYMENT GATEWAY',
+                style: TextStyle(
+                  letterSpacing: 5,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
                 )),
-                decoration: BoxDecoration(
-                  color: Colors.blue[700],
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
+          )),
+      body: Container(
+        child: Center(
+          child: GestureDetector(
+            onTap: openCheckout,
+            child: Container(
+              height: 200,
+              width: 200,
+              child: Center(
+                  child: Text(
+                "PROCEED TO PAYMENT",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    letterSpacing: 2,
+                    fontWeight: FontWeight.w800),
+              )),
+              decoration: BoxDecoration(
+                color: Colors.blue[700],
+                borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
             ),
           ),

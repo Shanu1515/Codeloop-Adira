@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon2/messages.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+
+import 'Choices/Choices.dart';
 
 class SelfReport extends StatefulWidget {
   @override
@@ -35,8 +38,8 @@ class _SelfReportState extends State<SelfReport> {
               lineWidth: 20.0,
               percent: 0.4,
               center: new Text("40%"),
-              progressColor: Colors.green[500],
-              backgroundColor: Colors.red[600],
+              progressColor: Colors.red[600],
+              backgroundColor: Colors.green[500],
             ),
             SizedBox(
               height: 80,
@@ -91,32 +94,48 @@ class _SelfReportState extends State<SelfReport> {
                         color: Colors.black12,
                         child: Row(
                           children: [
-                            Container(
-                              width: 150,
-                              height: 50,
-                              color: Colors.blue[900],
-                              child: Center(
-                                  child: Text(
-                                "Retake\nAssessment",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500),
-                              )),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Message()));
+                              },
+                              child: Container(
+                                width: 150,
+                                height: 50,
+                                color: Colors.blue[900],
+                                child: Center(
+                                    child: Text(
+                                  "Retake\nAssessment",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
+                                )),
+                              ),
                             ),
-                            Container(
-                              width: 150,
-                              height: 50,
-                              color: Colors.blue[100],
-                              child: Center(
-                                  child: Text(
-                                "End Now",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500),
-                              )),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Choices()));
+                              },
+                              child: Container(
+                                width: 150,
+                                height: 50,
+                                color: Colors.blue[100],
+                                child: Center(
+                                    child: Text(
+                                  "End Now",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
+                                )),
+                              ),
                             )
                           ],
                         ),

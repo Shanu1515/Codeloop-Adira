@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon2/SelfAssesmentrep.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class Message extends StatefulWidget {
@@ -1543,6 +1544,17 @@ class _MessageState extends State<Message> {
                     ),
                   ),
                 ),
+              if (f25 == 0)
+                Center(
+                  child: RaisedButton(
+                      child: Text("Check the analysis"),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SelfReport()));
+                      }),
+                )
             ],
           ),
         ));

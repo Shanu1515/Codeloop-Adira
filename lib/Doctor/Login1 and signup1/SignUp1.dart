@@ -30,23 +30,26 @@ class _SignUpState extends State<SignUp2> {
   TextEditingController _exp = TextEditingController();
   TextEditingController _fee = TextEditingController();
   TextEditingController _deg = TextEditingController();
+  TextEditingController _language = TextEditingController();
   final _auth = FirebaseAuth.instance;
   bool check = false;
   final picker = ImagePicker();
   String downloadurl;
+  String downloadurl1;
   File image1;
+  File image2;
   final databaseReference = FirebaseDatabase.instance.reference();
   var uid = Uuid();
 
   void _trysubmit(BuildContext ctx, String name, String email, String pwd,
-      String pwd1, String exp, String fee, String degree) {
+      String pwd1, String exp, String fee, String degree, String language) {
     final isvalid = formkey.currentState.validate();
     FocusScope.of(ctx).unfocus();
     if (isvalid) {
       formkey.currentState.save();
     } else {}
     _submitAuthForm(name.trim(), email.trim(), pwd.trim(), pwd1.trim(),
-        exp.trim(), fee.trim(), degree.trim(), ctx);
+        exp.trim(), fee.trim(), degree.trim(), language.trim(), ctx);
   }
 
   void _submitAuthForm(
@@ -57,6 +60,7 @@ class _SignUpState extends State<SignUp2> {
     var exp,
     var fee,
     var degree,
+    var language,
     BuildContext ctx,
   ) async {
     try {
@@ -75,7 +79,7 @@ class _SignUpState extends State<SignUp2> {
     } catch (err) {
       print(err);
     }
-    add(name1, email1, pwd1, exp, fee, degree);
+    add(name1, email1, pwd1, exp, fee, degree, language);
   }
 
   Future uploadToStorage() async {
@@ -118,8 +122,48 @@ class _SignUpState extends State<SignUp2> {
     return downloadurl;
   }
 
+  Future uploadToStorage1() async {
+    try {
+      final DateTime now = DateTime.now();
+      final int millSeconds = now.millisecondsSinceEpoch;
+      final String month = now.month.toString();
+      final String date = now.day.toString();
+      final String storageId = (millSeconds.toString() + uid.toString());
+      final String today = ('$month-$date');
+
+      final file = await picker.getImage(
+        source: ImageSource.gallery,
+        imageQuality: 80,
+      );
+      image2 = File(file.path);
+      uploadVideo(image2);
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  Future<String> uploadVideo1(var videofile) async {
+    var uuid = new Uuid().v1();
+    StorageReference ref =
+        FirebaseStorage.instance.ref().child("post_$uuid.jpg");
+
+    await ref.putFile(videofile).onComplete.then((val) {
+      val.ref.getDownloadURL().then((val) {
+        print(val);
+        downloadurl1 = val;
+        // add(downloadurl); //Val here is Already String
+        Future.delayed(Duration(seconds: 2), () {
+          setState(() {
+            // check = true;
+          });
+        });
+      });
+    });
+    return downloadurl1;
+  }
+
   Future<void> add(String username, String useremail, String passwd, String exp,
-      String fee, String degree) async {
+      String fee, String degree, String language1) async {
     // var uuid = new Uuid().v1();
     DatabaseReference _color2 = databaseReference.child("Doctors").child(user);
     final TransactionResult transactionResult =
@@ -137,6 +181,7 @@ class _SignUpState extends State<SignUp2> {
         "exp": "true",
         "fee": "true",
         "degree": "true",
+        "language": "true",
         "uid": "true"
       }).then((_) {
         print('Transaction  committed.');
@@ -155,6 +200,7 @@ class _SignUpState extends State<SignUp2> {
       "exp": exp,
       "fee": fee,
       "degree": degree,
+      "language": language1,
       "uid": user
     });
   }
@@ -201,7 +247,12 @@ class _SignUpState extends State<SignUp2> {
                               SizedBox(
                                 height: 10,
                               ),
-                              Text("Add your profile image",style: TextStyle(fontSize: 17,),),
+                              Text(
+                                "Add your profile image",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                ),
+                              ),
                               SizedBox(
                                 height: 10,
                               ),
@@ -362,7 +413,6 @@ class _SignUpState extends State<SignUp2> {
                                     padding: const EdgeInsets.fromLTRB(
                                         10, 0, 10, 10),
                                     child: TextFormField(
-                                      keyboardType: TextInputType.number,
                                       controller: _exp,
                                       style: TextStyle(color: Colors.black),
                                       decoration: InputDecoration(
@@ -391,7 +441,6 @@ class _SignUpState extends State<SignUp2> {
                                     padding: const EdgeInsets.fromLTRB(
                                         10, 0, 10, 10),
                                     child: TextFormField(
-                                      keyboardType: TextInputType.number,
                                       controller: _fee,
                                       style: TextStyle(color: Colors.black),
                                       decoration: InputDecoration(
@@ -439,26 +488,60 @@ class _SignUpState extends State<SignUp2> {
                                   ),
                                 ),
                               ),
-                              Container(
-                                height: 50,
-                                width: 300,
-                                color: Color(0xFFFFC0CB),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      MdiIcons.attachment,
-                                      size: 30,
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                child: Container(
+                                  color: Colors.white10,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        10, 0, 10, 10),
+                                    child: TextFormField(
+                                      controller: _language,
+                                      style: TextStyle(color: Colors.black),
+                                      decoration: InputDecoration(
+                                        hintText: "Language Known",
+                                        hintStyle:
+                                            TextStyle(color: Colors.black54),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
                                     ),
-                                    SizedBox(
-                                      width: 20,
-                                    ),
-                                    Text(
-                                      "Upload your documents\nto be verified.",
-                                      style: TextStyle(fontSize: 17),
-                                    )
-                                  ],
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  uploadToStorage1();
+                                },
+                                child: Container(
+                                  height: 50,
+                                  width: 300,
+                                  color: Color(0xFFFFC0CB),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        MdiIcons.attachment,
+                                        size: 30,
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        "Upload your documents\nto be verified.",
+                                        style: TextStyle(fontSize: 17),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                               SizedBox(
@@ -478,7 +561,8 @@ class _SignUpState extends State<SignUp2> {
                               _pwd1.text,
                               _exp.text,
                               _fee.text,
-                              _deg.text);
+                              _deg.text,
+                              _language.text);
                         },
                         child: Container(
                           height: 40,

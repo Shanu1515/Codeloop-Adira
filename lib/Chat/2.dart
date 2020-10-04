@@ -1,6 +1,10 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hackathon2/Appoitment/Appointmentlist.dart';
+import 'package:hackathon2/Appoitment/Show.dart';
+import 'package:hackathon2/Appoitment/appointment.dart';
+import 'package:hackathon2/Appoitment/bot.dart';
 import 'package:hackathon2/Appoitment/call.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -12,8 +16,8 @@ import 'user.dart';
 
 class AllChatsPage extends StatefulWidget {
   final String uid;
-
-  const AllChatsPage({Key key, this.uid}) : super(key: key);
+  final String image2;
+  const AllChatsPage({Key key, this.uid, this.image2}) : super(key: key);
   @override
   _AllChatsPageState createState() => _AllChatsPageState();
 }
@@ -54,7 +58,9 @@ class _AllChatsPageState extends State<AllChatsPage> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) {
-          return ChatPage(friend);
+          return MyApp(
+            drimag: widget.image2,
+          );
         },
       ),
     );
@@ -127,8 +133,17 @@ class _AllChatsPageState extends State<AllChatsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        automaticallyImplyLeading: true,
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Appointment3()));
+            }),
+        // iconTheme: IconThemeData(color: Colors.black),
+        //automaticallyImplyLeading: true,
         backgroundColor: Colors.white,
         elevation: 0,
         title: Center(

@@ -129,16 +129,19 @@ class _MakeaptState extends State<Makeapt> {
     return Scaffold(
       backgroundColor: Color(0xFFFFC0CB),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        iconTheme: IconThemeData(color: Colors.black),
+        automaticallyImplyLeading: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text(
-          "APPOINTMENT FORM",
-          style: TextStyle(
-              color: Colors.black,
-              letterSpacing: 3,
-              fontSize: 20,
-              fontWeight: FontWeight.w400),
+        title: Center(
+          child: Text(
+            "APPOINTMENT FORM",
+            style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 3,
+                fontSize: 20,
+                fontWeight: FontWeight.w400),
+          ),
         ),
       ),
       body: SingleChildScrollView(
