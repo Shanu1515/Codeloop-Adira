@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class SelfReport extends StatefulWidget {
   @override
@@ -29,29 +30,13 @@ class _SelfReportState extends State<SelfReport> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(
-              radius: 120,
-              backgroundColor: Colors.green[500],
-              child: CircleAvatar(
-                radius: 100,
-                backgroundColor: Colors.white,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "40%",
-                      style: TextStyle(
-                        fontSize: 40,
-                      ),
-                    ),
-                    Text(
-                      "Risk",
-                      style: TextStyle(fontSize: 25, color: Colors.black),
-                    )
-                  ],
-                ),
-              ),
+            CircularPercentIndicator(
+              radius: 160.0,
+              lineWidth: 20.0,
+              percent: 0.4,
+              center: new Text("40%"),
+              progressColor: Colors.green[500],
+              backgroundColor: Colors.red[600],
             ),
             SizedBox(
               height: 80,

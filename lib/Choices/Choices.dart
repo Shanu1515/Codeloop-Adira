@@ -56,7 +56,7 @@ class _ChoicesState extends State<Choices> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         PageTransition(
                             type: PageTransitionType.fade, child: Bottom()));
@@ -103,7 +103,7 @@ class _ChoicesState extends State<Choices> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         PageTransition(
                             type: PageTransitionType.fade, child: Message()));

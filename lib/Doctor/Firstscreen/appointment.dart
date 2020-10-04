@@ -76,7 +76,7 @@ class _AppointmentState extends State<Appointment> {
         ),
       ),
       body: Container(
-        color: Color(0xFFFF69B4),
+        color: Color(0xFFFFC0CB),
         child: FirebaseAnimatedList(
             defaultChild: Center(child: CircularProgressIndicator()),
             query: _databaseReference,
@@ -111,28 +111,37 @@ class _AppointmentState extends State<Appointment> {
                                             uid: snapshot1.data.value['uid'],
                                           )));
                             },
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: CircleAvatar(
-                                    backgroundColor: Colors.transparent,
-                                    radius: 30,
-                                    backgroundImage: NetworkImage(
-                                        snapshot1.data.value['image']),
-                                  ),
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(10, 10, 10, 5),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.transparent,
+                                        radius: 30,
+                                        backgroundImage: NetworkImage(
+                                            snapshot1.data.value['image']),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: Text(
+                                        snapshot1.data.value['patientname'],
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Text(
-                                    snapshot1.data.value['patientname'],
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 25,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                )
-                              ],
+                              ),
                             ),
                           ),
                         )

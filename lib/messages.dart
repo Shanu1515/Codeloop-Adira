@@ -511,9 +511,9 @@ class _MessageState extends State<Message> {
                               ? Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    "Attention needed",
+                                    "NOTE: Contact the doctor immediately.",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 15),
+                                        color: Colors.red, fontSize: 15),
                                   ),
                                 )
                               : Padding(
@@ -608,9 +608,9 @@ class _MessageState extends State<Message> {
                               ? Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    " Attention needed",
+                                    "NOTE: Contact the doctor immediately.",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 15),
+                                        color: Colors.red, fontSize: 15),
                                   ),
                                 )
                               : Padding(
@@ -1043,9 +1043,9 @@ class _MessageState extends State<Message> {
                               ? Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    "Contact the doctor immediately",
+                                    "NOTE: Contact the doctor immediately.",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 15),
+                                        color: Colors.red, fontSize: 15),
                                   ),
                                 )
                               : Padding(
@@ -1140,9 +1140,9 @@ class _MessageState extends State<Message> {
                               ? Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    "Attentiom needed",
+                                    "NOTE: Contact the doctor immediately.",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 15),
+                                        color: Colors.red, fontSize: 15),
                                   ),
                                 )
                               : Padding(
@@ -1237,9 +1237,9 @@ class _MessageState extends State<Message> {
                               ? Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    "Attentiom needed",
+                                    "NOTE: Contact the doctor immediately.",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 15),
+                                        color: Colors.red, fontSize: 15),
                                   ),
                                 )
                               : Padding(
