@@ -37,6 +37,7 @@ dependencies:
   shared_preferences: ^0.5.12
   stream_chat_flutter: ^0.2.0
   flutter_socket_io: 
+  animated_text_kit: ^2.3.0
   scoped_model: 
   firebase_database: 
   introduction_screen:

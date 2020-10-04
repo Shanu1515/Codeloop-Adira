@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 import 'package:razorpay_flutter/razorpay_flutter.dart';
-
 
 import 'package:fluttertoast/fluttertoast.dart';
 //import 'package:flutter_app_sigma/response.dart';
@@ -25,25 +23,41 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.pinkAccent,
-          title: const Text('Payment Gateway'),
+            elevation: 0,
+            backgroundColor: Colors.white,
+            title: Center(
+              child: const Text('PAYMENT GATEWAY',
+                  style: TextStyle(
+                    letterSpacing: 5,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                  )),
+            )),
+        body: Container(
+          child: Center(
+            child: GestureDetector(
+              onTap: openCheckout,
+              child: Container(
+                height: 200,
+                width: 200,
+                child: Center(
+                    child: Text(
+                  "PROCEED TO PAYMENT",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      letterSpacing: 2,
+                      fontWeight: FontWeight.w800),
+                )),
+                decoration: BoxDecoration(
+                  color: Colors.blue[700],
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+              ),
+            ),
+          ),
         ),
-        body: Center(
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-              RaisedButton(
-                  elevation: 10,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  color: Colors.pinkAccent,
-                  onPressed: openCheckout,
-                  child: Text(
-                    'Proceed to Payment',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ))
-            ])),
       ),
     );
   }
