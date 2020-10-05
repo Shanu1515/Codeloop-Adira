@@ -14,6 +14,8 @@ class Request extends StatefulWidget {
   final String fee;
   final String degree;
   final String exp;
+  final String language;
+  final String drcertificate;
   const Request(
       {Key key,
       this.index,
@@ -21,7 +23,9 @@ class Request extends StatefulWidget {
       this.fee,
       this.degree,
       this.exp,
-      this.doctorname})
+      this.doctorname,
+      this.language,
+      this.drcertificate})
       : super(key: key);
   @override
   _RequestState createState() => _RequestState();
@@ -51,6 +55,7 @@ class _RequestState extends State<Request> {
         tag: widget.index,
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -83,7 +88,7 @@ class _RequestState extends State<Request> {
                                   "Degree: " + widget.degree,
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 23,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -94,7 +99,7 @@ class _RequestState extends State<Request> {
                                   "Experience: " + widget.exp,
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 23,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -105,7 +110,18 @@ class _RequestState extends State<Request> {
                                   "Fees: " + widget.fee,
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 23,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Known Languages: " + widget.language,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -114,7 +130,7 @@ class _RequestState extends State<Request> {
                           ),
                           color: Color(0xFFFF69B4),
                           width: MediaQuery.of(context).size.width / 1.2,
-                          height: MediaQuery.of(context).size.height / 6,
+                          height: MediaQuery.of(context).size.height / 5,
                         ),
                       ),
                     )
@@ -122,7 +138,30 @@ class _RequestState extends State<Request> {
                 ),
               ),
               SizedBox(
-                height: 70,
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Certificate",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(widget.drcertificate),
+                          fit: BoxFit.fill)),
+                  width: MediaQuery.of(context).size.width / 1.3,
+                  height: MediaQuery.of(context).size.height / 1.9,
+                ),
+              ),
+              SizedBox(
+                height: 20,
               ),
               Center(
                   child: GestureDetector(

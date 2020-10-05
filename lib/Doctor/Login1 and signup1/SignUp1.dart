@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:uuid/uuid.dart';
 
 AuthResult authResult;
 String user;
+int g = 1;
 
 class SignUp2 extends StatefulWidget {
   final Function toggle;
@@ -136,7 +138,7 @@ class _SignUpState extends State<SignUp2> {
         imageQuality: 80,
       );
       image2 = File(file.path);
-      uploadVideo(image2);
+      uploadVideo1(image2);
     } catch (error) {
       print(error);
     }
@@ -152,10 +154,8 @@ class _SignUpState extends State<SignUp2> {
         print(val);
         downloadurl1 = val;
         // add(downloadurl); //Val here is Already String
-        Future.delayed(Duration(seconds: 2), () {
-          setState(() {
-            // check = true;
-          });
+        setState(() {
+          g = 0;
         });
       });
     });
@@ -182,6 +182,7 @@ class _SignUpState extends State<SignUp2> {
         "fee": "true",
         "degree": "true",
         "language": "true",
+        "certificate": "true",
         "uid": "true"
       }).then((_) {
         print('Transaction  committed.');
@@ -201,6 +202,7 @@ class _SignUpState extends State<SignUp2> {
       "fee": fee,
       "degree": degree,
       "language": language1,
+      "certificate": downloadurl1,
       "uid": user
     });
   }
@@ -518,7 +520,22 @@ class _SignUpState extends State<SignUp2> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  uploadToStorage1();
+                                  uploadToStorage1().then((value) {
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          Future.delayed(Duration(seconds: 5),
+                                              () {
+                                            Navigator.of(context).pop(true);
+                                          });
+                                          return AlertDialog(
+                                            content: g == 0
+                                                ? CircularProgressIndicator()
+                                                : Icon(Icons.check,
+                                                    color: Colors.green),
+                                          );
+                                        });
+                                  });
                                 },
                                 child: Container(
                                   height: 50,
@@ -563,6 +580,14 @@ class _SignUpState extends State<SignUp2> {
                               _fee.text,
                               _deg.text,
                               _language.text);
+                          _name.clear();
+                          _email.clear();
+                          _pwd.clear();
+                          _pwd1.clear();
+                          _exp.clear();
+                          _fee.clear();
+                          _deg.clear();
+                          _language.clear();
                         },
                         child: Container(
                           height: 40,

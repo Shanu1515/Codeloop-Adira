@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon2/Chat/1.dart';
+import 'package:hackathon2/Chat/2.dart';
 import 'Chatscreen.dart';
 
 class Show extends StatefulWidget {
@@ -149,9 +149,9 @@ class _ShowState extends State<Show> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MyApp(
+                                builder: (context) => AllChatsPage(
                                       uid: widget.uid,
-                                      image: widget.drimage,
+                                      image2: widget.drimage,
                                     )));
                       }
                     },

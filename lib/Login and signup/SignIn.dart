@@ -4,6 +4,7 @@ import 'package:hackathon2/Choices/Choices.dart';
 import 'package:hackathon2/GoogleAuth/google.dart';
 import 'package:hackathon2/global.dart';
 import 'package:hackathon2/messages.dart';
+import 'package:hackathon2/onboarding/onboarding.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignIn extends StatefulWidget {
@@ -87,6 +88,12 @@ class _SignInState extends State<SignIn> {
             ),
           )
         : Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: true,
+              backgroundColor: Color(0xFFFFC0CB),
+              elevation: 0,
+              iconTheme: IconThemeData(color: Colors.black),
+            ),
             backgroundColor: Colors.white,
             body: Container(
               child: Column(

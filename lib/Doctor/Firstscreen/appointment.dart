@@ -61,7 +61,8 @@ class _AppointmentState extends State<Appointment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        iconTheme: IconThemeData(color: Colors.black),
+        automaticallyImplyLeading: true,
         backgroundColor: Colors.white,
         elevation: 0,
         title: Center(

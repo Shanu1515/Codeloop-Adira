@@ -88,6 +88,12 @@ class _SignInState extends State<SignIn1> {
             ),
           )
         : Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              automaticallyImplyLeading: true,
+              iconTheme: IconThemeData(color: Colors.black),
+              backgroundColor: Color(0xFFFFC0CB),
+            ),
             backgroundColor: Colors.white,
             body: Container(
               child: Column(

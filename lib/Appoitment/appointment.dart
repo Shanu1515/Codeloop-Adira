@@ -67,6 +67,10 @@ class _AppointmentState extends State<Appointment3> {
                                             degree:
                                                 snapshot1.data.value['degree'],
                                             exp: snapshot1.data.value['exp'],
+                                            language: snapshot1
+                                                .data.value['language'],
+                                            drcertificate: snapshot1
+                                                .data.value['certificate'],
                                           )));
                             },
                             child: Row(

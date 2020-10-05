@@ -1,25 +1,18 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hackathon2/Appoitment/Appointmentlist.dart';
-import 'package:hackathon2/Appoitment/Show.dart';
-import 'package:hackathon2/Appoitment/appointment.dart';
-import 'package:hackathon2/Appoitment/bot.dart';
-import 'package:hackathon2/Appoitment/call.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:hackathon2/Doctor/call.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:scoped_model/scoped_model.dart';
-import 'package:http/http.dart' as http;
 
-class AllChatsPage extends StatefulWidget {
+class Show1 extends StatefulWidget {
   final String uid;
   final String image2;
-  const AllChatsPage({Key key, this.uid, this.image2}) : super(key: key);
+  const Show1({Key key, this.uid, this.image2}) : super(key: key);
   @override
   _AllChatsPageState createState() => _AllChatsPageState();
 }
 
-class _AllChatsPageState extends State<AllChatsPage> {
+class _AllChatsPageState extends State<Show1> {
   int f = 0;
   ClientRole _role = ClientRole.Broadcaster;
 
@@ -31,7 +24,7 @@ class _AllChatsPageState extends State<AllChatsPage> {
     await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CallPage(
+        builder: (context) => CallPage1(
           channelName: widget.uid,
           role: _role,
         ),
@@ -45,7 +38,7 @@ class _AllChatsPageState extends State<AllChatsPage> {
     );
   }
 
-  void friendClicked() {
+  /* void friendClicked() {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) {
@@ -55,7 +48,7 @@ class _AllChatsPageState extends State<AllChatsPage> {
         },
       ),
     );
-  }
+  }*/
 
   Widget buildAllChatList() {
     return Row(
@@ -82,7 +75,7 @@ class _AllChatsPageState extends State<AllChatsPage> {
         ),
         GestureDetector(
           onTap: () {
-            friendClicked();
+            //friendClicked();
           },
           child: CircleAvatar(
             radius: 40,

@@ -342,6 +342,10 @@ class _SignUpState extends State<SignUp> {
                         onTap: () {
                           _trysubmit(context, _name.text, _email.text,
                               _pwd.text, _pwd1.text);
+                          _name.clear();
+                          _email.clear();
+                          _pwd.clear();
+                          _pwd1.clear();
                         },
                         child: Container(
                           height: 40,

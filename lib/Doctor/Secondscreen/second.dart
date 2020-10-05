@@ -1,6 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:hackathon2/Chat/1.dart';
+import 'package:hackathon2/Doctor/Secondscreen/show1.dart';
 //import 'package:hackathon2/Doctor/Chat/1.dart';
 import 'package:hackathon2/global.dart';
 
@@ -87,7 +87,8 @@ class _SecondState extends State<Second> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        iconTheme: IconThemeData(color: Colors.black),
+        automaticallyImplyLeading: true,
         backgroundColor: Colors.white,
         elevation: 0,
         title: Center(
@@ -198,12 +199,12 @@ class _SecondState extends State<Second> {
                     onTap: () {
                       add(widget.image, widget.name, widget.age, widget.contact,
                           widget.address, widget.report, widget.uid, "false");
-                      /*   Navigator.push(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MyApp1(
+                              builder: (context) => Show1(
                                     uid: widget.uid,
-                                  )));*/
+                                  )));
                     },
                     child: Container(
                       height: 40,
