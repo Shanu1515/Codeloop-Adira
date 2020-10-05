@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon2/1.dart';
+import 'package:hackathon2/Choices/Choices.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Language extends StatefulWidget {
   @override
@@ -11,6 +13,7 @@ class _LanguageState extends State<Language> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFFC0CB),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
@@ -27,48 +30,144 @@ class _LanguageState extends State<Language> {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(
-            child: DropdownButton<String>(
-              value: dropdownValue,
-              icon: Icon(Icons.arrow_downward),
-              iconSize: 24,
-              elevation: 16,
-              style: TextStyle(color: Colors.black),
-              underline: Container(
-                height: 2,
-                color: Colors.pink[100],
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  PageTransition(type: PageTransitionType.fade, child: One()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(10, 20, 10, 10),
+              child: Container(
+                height: 50,
+                width: 500,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "ENGLISH",
+                        style: TextStyle(fontSize: 20, letterSpacing: 5),
+                      ),
+                      Icon(Icons.arrow_forward_ios)
+                    ],
+                  ),
+                ),
               ),
-              onChanged: (String newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                });
-              },
-              items: <String>[
-                'Select your language',
-                'English',
-                'Hindi',
-                'French',
-                'Arabic'
-              ].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
             ),
           ),
-          SizedBox(
-            height: 20,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  PageTransition(type: PageTransitionType.fade, child: One()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+              child: Container(
+                height: 50,
+                width: 500,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "FRENCH",
+                        style: TextStyle(fontSize: 20, letterSpacing: 5),
+                      ),
+                      Icon(Icons.arrow_forward_ios)
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
-          RaisedButton(
-              child: Text("Next"),
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => One()));
-              })
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  PageTransition(type: PageTransitionType.fade, child: One()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+              child: Container(
+                height: 50,
+                width: 500,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "SPANISH",
+                        style: TextStyle(fontSize: 20, letterSpacing: 5),
+                      ),
+                      Icon(Icons.arrow_forward_ios)
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  PageTransition(type: PageTransitionType.fade, child: One()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+              child: Container(
+                height: 50,
+                width: 500,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "ARABIC",
+                        style: TextStyle(fontSize: 20, letterSpacing: 5),
+                      ),
+                      Icon(Icons.arrow_forward_ios)
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  PageTransition(type: PageTransitionType.fade, child: One()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+              child: Container(
+                height: 50,
+                width: 500,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "HINDI",
+                        style: TextStyle(fontSize: 20, letterSpacing: 5),
+                      ),
+                      Icon(Icons.arrow_forward_ios)
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

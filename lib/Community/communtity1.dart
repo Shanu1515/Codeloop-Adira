@@ -75,7 +75,7 @@ class _Community1State extends State<Community1> {
             widget.groupname,
             style: TextStyle(
                 color: Colors.black,
-                letterSpacing: 5,
+                letterSpacing: 1,
                 fontSize: 20,
                 fontWeight: FontWeight.w400),
           ),

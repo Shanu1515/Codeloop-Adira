@@ -13,34 +13,40 @@ class Logo extends StatefulWidget {
 class _LogoState extends State<Logo> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Container(
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            PageTransition(type: PageTransitionType.fade, child: App()));
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
           child: Container(
-            child: RotateAnimatedTextKit(
-              duration: Duration(milliseconds: 100),
-              pause: Duration(milliseconds: 0),
-              onFinished: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.fade, child: App()));
-              },
-              text: ["CAPTURE", "SHARE", "EXPLORE"],
-              textStyle: TextStyle(
-                  color: Colors.transparent,
-                  fontSize: 20.0,
-                  letterSpacing: 10,
-                  fontWeight: FontWeight.w900),
-              totalRepeatCount: 1,
+            child: Container(
+              child: RotateAnimatedTextKit(
+                duration: Duration(milliseconds: 100),
+                pause: Duration(milliseconds: 0),
+                onFinished: () {
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          type: PageTransitionType.fade, child: App()));
+                },
+                text: ["CAPTURE", "SHARE", "EXPLORE"],
+                textStyle: TextStyle(
+                    color: Colors.transparent,
+                    fontSize: 20.0,
+                    letterSpacing: 10,
+                    fontWeight: FontWeight.w900),
+                totalRepeatCount: 1,
+              ),
             ),
+            height: 400,
+            width: 400,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/Logo.png"), fit: BoxFit.cover)),
           ),
-          height: 400,
-          width: 400,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/Logo.png"), fit: BoxFit.cover)),
         ),
       ),
     );

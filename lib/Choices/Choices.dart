@@ -133,7 +133,7 @@ class _ChoicesState extends State<Choices> {
                         Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Text(
-                            "CONTINUE TO SELF ASSESMENT",
+                            "CONTINUE TO SELF ASSESSMENT",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,

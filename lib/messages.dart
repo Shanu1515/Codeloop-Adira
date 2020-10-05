@@ -499,7 +499,7 @@ class _MessageState extends State<Message> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.3),
                     child: Container(
-                      width: 170,
+                      width: 250,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -514,7 +514,9 @@ class _MessageState extends State<Message> {
                                   child: Text(
                                     "NOTE: Contact the doctor immediately.",
                                     style: TextStyle(
-                                        color: Colors.red, fontSize: 15),
+                                        color: Colors.red,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w900),
                                   ),
                                 )
                               : Padding(
@@ -596,7 +598,7 @@ class _MessageState extends State<Message> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.3),
                     child: Container(
-                      width: 170,
+                      width: 250,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -609,9 +611,9 @@ class _MessageState extends State<Message> {
                               ? Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    "NOTE: Contact the doctor immediately.",
+                                    "NOTE: Need attention, check regularly.",
                                     style: TextStyle(
-                                        color: Colors.red, fontSize: 15),
+                                        color: Colors.black, fontSize: 15),
                                   ),
                                 )
                               : Padding(
@@ -1031,7 +1033,7 @@ class _MessageState extends State<Message> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.3),
                     child: Container(
-                      width: 170,
+                      width: 250,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -1046,7 +1048,9 @@ class _MessageState extends State<Message> {
                                   child: Text(
                                     "NOTE: Contact the doctor immediately.",
                                     style: TextStyle(
-                                        color: Colors.red, fontSize: 15),
+                                        color: Colors.red,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w900),
                                   ),
                                 )
                               : Padding(
@@ -1128,7 +1132,7 @@ class _MessageState extends State<Message> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.3),
                     child: Container(
-                      width: 170,
+                      width: 250,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -1141,9 +1145,9 @@ class _MessageState extends State<Message> {
                               ? Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    "NOTE: Contact the doctor immediately.",
+                                    "NOTE: Need attention, check regularly.",
                                     style: TextStyle(
-                                        color: Colors.red, fontSize: 15),
+                                        color: Colors.black, fontSize: 15),
                                   ),
                                 )
                               : Padding(
@@ -1225,7 +1229,7 @@ class _MessageState extends State<Message> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.3),
                     child: Container(
-                      width: 170,
+                      width: 250,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -1238,9 +1242,9 @@ class _MessageState extends State<Message> {
                               ? Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    "NOTE: Contact the doctor immediately.",
+                                    "NOTE: Need attention, check regularly.",
                                     style: TextStyle(
-                                        color: Colors.red, fontSize: 15),
+                                        color: Colors.black, fontSize: 15),
                                   ),
                                 )
                               : Padding(
@@ -1547,7 +1551,12 @@ class _MessageState extends State<Message> {
               if (f25 == 0)
                 Center(
                   child: RaisedButton(
-                      child: Text("Check the analysis"),
+                      color: Colors.white,
+                      elevation: 0,
+                      child: Text(
+                        "ANALYSIS REPORT",
+                        style: TextStyle(letterSpacing: 2),
+                      ),
                       onPressed: () {
                         Navigator.push(
                             context,

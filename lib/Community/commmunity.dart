@@ -12,6 +12,7 @@ class _CommunityState extends State<Community> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(0xFFFFC0CB),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
@@ -28,6 +29,7 @@ class _CommunityState extends State<Community> {
           ),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GestureDetector(
               onTap: () {
@@ -35,52 +37,70 @@ class _CommunityState extends State<Community> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => Community1(
-                              groupname: "Texas Club",
+                              groupname: "TEXAS CLUB",
                             )));
               },
               child: Card(
                   child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 8,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    SizedBox(height: 20),
-                    Center(
-                      child: Text(
-                        "Texas Club",
-                        style: TextStyle(color: Colors.black, fontSize: 18),
+                height: 170,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Center(
+                        child: Text(
+                          "TEXAS CLUB",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 22,
+                              letterSpacing: 4),
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage:
-                                ExactAssetImage("assets/girl4.jpeg"),
-                          ),
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage:
-                                ExactAssetImage("assets/girl5.jpeg"),
-                          ),
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage:
-                                ExactAssetImage("assets/girl7.jpg"),
-                          ),
-                        ],
+                      SizedBox(
+                        height: 20,
                       ),
-                    ),
-                  ],
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl12.jpeg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl11.jpeg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl4.jpeg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl5.jpeg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl7.jpg"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               )),
             ),
@@ -90,52 +110,71 @@ class _CommunityState extends State<Community> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => Community1(
-                              groupname: "California Support",
+                              groupname: "CALIFORNIA SUPPORT COMMUNITY",
                             )));
               },
               child: Card(
                   child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 8,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    SizedBox(height: 20),
-                    Center(
-                      child: Text(
-                        "California Support",
-                        style: TextStyle(color: Colors.black, fontSize: 18),
+                height: 170,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Center(
+                        child: Text(
+                          "CALIFORNIA SUPPORT COMMUNITY",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 22,
+                              letterSpacing: 4),
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage:
-                                ExactAssetImage("assets/girl8.jpeg"),
-                          ),
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage:
-                                ExactAssetImage("assets/girl9.jpeg"),
-                          ),
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage:
-                                ExactAssetImage("assets/girl10.jpeg"),
-                          ),
-                        ],
+                      SizedBox(
+                        height: 20,
                       ),
-                    ),
-                  ],
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl8.jpeg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl7.jpg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl9.jpeg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl4.jpeg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl10.jpeg"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               )),
             ),
@@ -145,52 +184,59 @@ class _CommunityState extends State<Community> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => Community1(
-                              groupname: "GRP,san diego women grp",
+                              groupname: "PINK WARRIORS COMMUNITY",
                             )));
               },
               child: Card(
                   child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 8,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    SizedBox(height: 20),
-                    Center(
-                      child: Text(
-                        "GRP,san diego women grp",
-                        style: TextStyle(color: Colors.black, fontSize: 18),
+                height: 170,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Center(
+                        child: Text(
+                          "PINK WARRIORS COMMUNITY",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 22,
+                              letterSpacing: 4),
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage:
-                                ExactAssetImage("assets/girl11.jpeg"),
-                          ),
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage:
-                                ExactAssetImage("assets/girl12.jpeg"),
-                          ),
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage:
-                                ExactAssetImage("assets/girl13.jpeg"),
-                          ),
-                        ],
+                      SizedBox(
+                        height: 20,
                       ),
-                    ),
-                  ],
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl11.jpeg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl12.jpeg"),
+                            ),
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage:
+                                  ExactAssetImage("assets/girl13.jpeg"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               )),
             ),
