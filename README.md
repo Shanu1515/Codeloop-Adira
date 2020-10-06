@@ -1,6 +1,6 @@
 # Codeloop-ADIRA :ribbon:
 <p align="center">
-  <a href="https://https://github.com/Gyaan-Portal/Gyaan-Portal-App">
+  <a href="#" style=" -webkit-user-select: none;-ms-user-select: none;user-select: none;">
     <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/assets/Logo.png" alt="Logo" width="150" height="150">
   </a>
   </p>
