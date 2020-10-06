@@ -1,6 +1,6 @@
 # Codeloop-ADIRA :ribbon:
 <p align="center">
-  <a href="#" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;">
+  <a href="#" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;  box-shadow: 0px 0px 8px #888888;">
     <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/assets/Logo.png" alt="Logo" width="150" height="150">
   </a>
   </p>
