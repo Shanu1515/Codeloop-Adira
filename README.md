@@ -1,6 +1,6 @@
 # Codeloop-ADIRA :ribbon:
 <p align="center">
-  <a href="#" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;  box-shadow: 0px 0px 8px #888888;">
+  <a href="https://https://github.com/Gyaan-Portal/Gyaan-Portal-App">
     <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/assets/Logo.png" alt="Logo" width="150" height="150">
   </a>
   </p>
@@ -27,3 +27,9 @@ Cross -platform application built using Firebase, Flutter, Agora SDK and Razorpa
 4. Onboarding more support groups
 5. Collaborating with more Medical Association Boards, thus connecting Hospitals, forming a global network.
 6. Introducing regular health news, updates and providing healthcare products.
+
+| Screenshot                                                                       | Screenshot                                                                       | Screenshot                                                                       |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/SS1.jpeg"> | <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/SS2.jpeg"> | <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/SS4.jpeg"> |
+| <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/SS5.jpeg"> | <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/SS6.jpeg"> | <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/SS3.jpeg"> |
+| ------------------------------                                                   | ------------------------------                                                   | --------
