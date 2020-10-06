@@ -10,8 +10,9 @@ The Application is inspired from the pink ribbon campaign. Factors like lack of 
 
 ## What it does?
 ADIRA app has the following features:<br>
-:ballot_box_with_check: Self-assessment<br>  
+ 
 :ballot_box_with_check: Medical Assistance by verified Doctors through messaging & video calling.<br>
+:ballot_box_with_check: Self-assessment<br> 
 :ballot_box_with_check: Read and share your journey, inspire other women throughout their journey<br>
 :ballot_box_with_check: Support Groups-Interact with those you want.<br>
 :ballot_box_with_check: Support Breast cancer patient <br>
