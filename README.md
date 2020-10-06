@@ -1,4 +1,4 @@
-# Codeloop-Virago
+# Codeloop-ADIRA
 ## Inspiration:
 The Application is inspired from the pink ribbon campaign. Factors like lack of proper information, communication, awareness, financial condition, improper medications, immobility, and lack of Support groups in many countries led to upbringing of the application ADIRA.
 
