@@ -1,25 +1,23 @@
-# Codeloop-ADIRA
+# Codeloop-ADIRA :ribbon:
+<p align="center">
+  <a href="https://https://github.com/Gyaan-Portal/Gyaan-Portal-App">
+    <img src="https://github.com/Shanu1515/Codeloop-Adira/blob/master/assets/Logo.png" alt="Logo" width="150" height="150">
+  </a>
+  </p>
+  
 ## Inspiration:
 The Application is inspired from the pink ribbon campaign. Factors like lack of proper information, communication, awareness, financial condition, improper medications, immobility, and lack of Support groups in many countries led to upbringing of the application ADIRA.
 
 ## What it does?
-ADIRA app has the following features:
-1. Self-assessment  
-2. Medical Assistance by verified Doctors through messaging & video calling. 
-3. Blogs section - Read and share your journey, inspire other women throughout their journey
-4. Support Groups-Interact with those you want.
-5. Donations - Support Breast cancer patient 
+ADIRA app has the following features:<br>
+:ballot_box_with_check: Self-assessment<br>  
+:ballot_box_with_check: Medical Assistance by verified Doctors through messaging & video calling.<br>
+:ballot_box_with_check: Read and share your journey, inspire other women throughout their journey<br>
+:ballot_box_with_check: Support Groups-Interact with those you want.<br>
+:ballot_box_with_check: Support Breast cancer patient <br>
 
 ## How we built it:
 Cross -platform application built using Firebase, Flutter, Agora SDK and Razorpay API.
-
-## Challenges we ran into:
-1.  Collaborating with NGOs and Doctors
-2. Implementing messaging and video call
-3. Secured payment gateway
-
-## Accomplishments that we're proud of
-Successfully implemented every feature in App, and also are contended for contribution towards Breast Cancer Society via the application. 
 
 ## What's next for ADIRA?
 1. Supporting regional languages
